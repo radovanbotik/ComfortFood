@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 *,
 *::before,
 *::after {
@@ -10,8 +11,19 @@
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
+$screen-large: 800px;
+@mixin screen-lg {
+  @media (min-width: #{($screen-large)}) {
+    @content;
+  }
+}
+
 body {
+  position: relative;
   // height: 100%;
+  // width: 100vw;
+  // overflow-x: hidden;
+  font-family: "Roboto";
 }
 
 h1,
@@ -39,9 +51,12 @@ a {
 }
 .main-header {
   // height: 12vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
+  @include screen-lg {
+    flex-direction: row;
+    align-items: center;
+  }
   // display: flex;
   // align-items: center;
 
@@ -80,28 +95,36 @@ a {
       }
     }
 
-    &__socials {
-      margin-left: auto;
-      gap: 2ex;
-      a {
-        display: flex;
+    // &__socials {
+    //   // position: fixed;
+    //   // bottom: 5em;
+    //   // left: 5em;
+    //   margin-left: auto;
+    //   gap: 2ex;
+    //   display: flex;
+    //   flex-direction: column;
+    //   a {
+    //     display: flex;
 
-        svg {
-          width: clamp(16px, 1.3vw, 2vw);
-          aspect-ratio: 1;
-          transition: all 150ms steps(1);
-        }
-        &:hover svg {
-          fill: orange;
-          transform: translateY(-1px);
-        }
-      }
-    }
+    //     svg {
+    //       width: clamp(16px, 1.3vw, 2vw);
+    //       aspect-ratio: 1;
+    //       transition: all 150ms steps(1);
+    //     }
+    //     &:hover svg {
+    //       fill: orange;
+    //       transform: translateY(-1px);
+    //     }
+    //   }
+    // }
 
     &__toggle {
       display: flex;
       margin-left: 2ex;
       cursor: pointer;
+      @include screen-lg {
+        display: none;
+      }
     }
   }
   .sitelinks {
@@ -116,10 +139,13 @@ a {
     display: flex;
     align-items: center;
     gap: 2ex;
+    @include screen-lg {
+      height: auto;
+      overflow: unset;
+    }
 
     li {
       padding: 1ex 0ex;
-      z-index: 2;
     }
 
     &.active {
@@ -130,9 +156,8 @@ a {
       font-size: clamp(12px, 1.5vw, 1.8vw);
       text-transform: uppercase;
       position: relative;
-
-      font-family: cooper-black-std, serif;
-      font-weight: 400;
+      font-family: "Roboto", sans-serif;
+      white-space: nowrap;
       cursor: pointer;
       transition: all 250ms ease-in;
       &::before,
@@ -169,11 +194,46 @@ a {
   }
 }
 
+.socials {
+  list-style: none;
+  position: fixed;
+  bottom: 5em;
+  left: 1ex;
+  margin-left: auto;
+  gap: 1ex;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  a {
+    background-color: rgba(233, 152, 1, 0.847);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1ex;
+    // clip-path: circle(45%);
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    transition: 150ms ease-in;
+
+    &:hover {
+      background-color: black;
+      transform: translateY(-1px);
+    }
+    svg {
+      width: clamp(16px, 1.3vw, 2vw);
+      aspect-ratio: 1;
+      transition: all 150ms steps(1);
+      fill: rgb(255, 255, 255);
+    }
+    &:hover svg {
+      // fill: orange;
+    }
+  }
+}
 .slider {
   padding: 2em;
   margin: 0 auto;
   height: 80vh;
-  width: 100%;
+  width: calc(100% - 4em);
   position: relative;
   //   background-color: green;
   overflow-x: scroll;
@@ -205,7 +265,7 @@ a {
 
       display: grid;
       grid-template-rows: 1fr 1fr;
-      grid-template-columns: 4vw 1fr 4vw;
+      grid-template-columns: 2vw 1fr 2vw;
 
       //solution to drag
       user-drag: none;
@@ -280,6 +340,146 @@ a {
 
       img {
         transform: scale(1);
+      }
+    }
+  }
+}
+section.spacer {
+  height: 12vh;
+  width: 100vw;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  // display: flex;
+  // justify-content: space-around;
+  // align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  span {
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  span:nth-child(1) {
+  }
+  span:nth-child(2) {
+    span.city {
+      margin-left: 0.5ex;
+      color: black;
+      font-size: 0.8rem;
+      border-bottom: 1px solid black;
+    }
+  }
+  span:nth-child(3) {
+  }
+  span.show-menu,
+  span.order-online {
+    border-bottom: 1px solid black;
+  }
+  span:nth-child(1),
+  span:nth-child(2),
+  span:nth-child(3) {
+    color: rgba(0, 0, 0, 0.472);
+    display: none;
+  }
+  @include screen-lg {
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+    span:nth-child(1),
+    span:nth-child(2),
+    span:nth-child(3) {
+      display: unset;
+    }
+  }
+}
+.offer {
+  height: 150vh;
+  padding: 2ex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 2fr;
+  gap: 2ex;
+  &__card {
+    position: relative;
+    background-size: cover;
+    background-position: bottom;
+
+    &.burgers {
+      background-image: url(../assets/cards/front-view-burger-stand.jpg);
+    }
+    &.limited_offer1 {
+      background-image: url(../assets/cards/pattern.png);
+    }
+    &.limited_offer2 {
+      background-image: url(../assets/cards/front-view-burgers-stand.jpg);
+    }
+  }
+  &__card:not(:last-child) {
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0px 0px 80px 80px rgba(0, 0, 0, 0.936);
+    }
+  }
+  &__hero {
+    position: relative;
+    grid-column: span 3;
+    padding: 4ex;
+    background-image: url(../assets/cards/burgers-and-dips.jpg);
+    background-size: cover;
+    // display: flex;
+    // flex-direction: column;
+    display: grid;
+    grid-template-columns: 8vw 1fr 8vw;
+    grid-auto-flow: row;
+    grid-auto-rows: max-content;
+    row-gap: 4ex;
+    & > * {
+      z-index: 2;
+      color: white;
+      grid-column: 2/3;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+    h6 {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    h1 {
+      font-size: 4vw;
+      width: 21ch;
+      text-transform: uppercase;
+      padding: 0.5ex 0ex 0.5ex 1ex;
+      border-left: 4px solid orange;
+    }
+    p {
+      width: 50ch;
+      letter-spacing: 1px;
+      line-height: 1.6;
+    }
+    .button-container {
+      display: flex;
+      gap: 2ex;
+      .button {
+        padding: 2ex 2.5ex;
+        border-radius: 0.75ex;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        transition: 250ms ease-in;
+        box-shadow: 0px 5px 10px -5px rgba(255, 255, 255, 0.266);
+        &:hover {
+          transform: translateY(-4px);
+        }
+      }
+      .about-food {
+        background-color: orange;
+      }
+      .view-menu {
+        background-color: rgba(0, 0, 0, 0.468);
       }
     }
   }

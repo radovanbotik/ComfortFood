@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 *,
 *::before,
 *::after {
@@ -8,6 +9,11 @@
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+body {
+  position: relative;
+  font-family: "Roboto";
 }
 
 h1,
@@ -36,9 +42,14 @@ a {
 }
 
 .main-header {
-  width: 100vw;
   display: flex;
   flex-direction: column;
+}
+@media (min-width: 800px) {
+  .main-header {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 .main-header .navigation {
   height: 100%;
@@ -72,26 +83,15 @@ a {
   font-weight: 400;
   font-style: normal;
 }
-.main-header .navigation__socials {
-  margin-left: auto;
-  gap: 2ex;
-}
-.main-header .navigation__socials a {
-  display: flex;
-}
-.main-header .navigation__socials a svg {
-  width: clamp(16px, 1.3vw, 2vw);
-  aspect-ratio: 1;
-  transition: all 150ms steps(1);
-}
-.main-header .navigation__socials a:hover svg {
-  fill: orange;
-  transform: translateY(-1px);
-}
 .main-header .navigation__toggle {
   display: flex;
   margin-left: 2ex;
   cursor: pointer;
+}
+@media (min-width: 800px) {
+  .main-header .navigation__toggle {
+    display: none;
+  }
 }
 .main-header .sitelinks {
   padding: 0 4ex;
@@ -105,9 +105,14 @@ a {
   align-items: center;
   gap: 2ex;
 }
+@media (min-width: 800px) {
+  .main-header .sitelinks {
+    height: auto;
+    overflow: unset;
+  }
+}
 .main-header .sitelinks li {
   padding: 1ex 0ex;
-  z-index: 2;
 }
 .main-header .sitelinks.active {
   height: auto;
@@ -117,8 +122,8 @@ a {
   font-size: clamp(12px, 1.5vw, 1.8vw);
   text-transform: uppercase;
   position: relative;
-  font-family: cooper-black-std, serif;
-  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  white-space: nowrap;
   cursor: pointer;
   transition: all 250ms ease-in;
 }
@@ -150,11 +155,42 @@ a {
   background-color: orange;
 }
 
+.socials {
+  list-style: none;
+  position: fixed;
+  bottom: 5em;
+  left: 1ex;
+  margin-left: auto;
+  gap: 1ex;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+.socials a {
+  background-color: rgba(233, 152, 1, 0.847);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1ex;
+  -webkit-clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+          clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+  transition: 150ms ease-in;
+}
+.socials a:hover {
+  background-color: black;
+  transform: translateY(-1px);
+}
+.socials a svg {
+  width: clamp(16px, 1.3vw, 2vw);
+  aspect-ratio: 1;
+  transition: all 150ms steps(1);
+  fill: rgb(255, 255, 255);
+}
 .slider {
   padding: 2em;
   margin: 0 auto;
   height: 80vh;
-  width: 100%;
+  width: calc(100% - 4em);
   position: relative;
   overflow-x: scroll;
   cursor: -webkit-grab;
@@ -181,7 +217,7 @@ a {
   border: 1px solid rgba(0, 0, 0, 0.262);
   display: grid;
   grid-template-rows: 1fr 1fr;
-  grid-template-columns: 4vw 1fr 4vw;
+  grid-template-columns: 2vw 1fr 2vw;
   user-drag: none;
   -webkit-user-drag: none;
   user-select: none;
@@ -247,4 +283,135 @@ a {
 }
 .slider__inner__slide.active img {
   transform: scale(1);
+}
+
+section.spacer {
+  height: 12vh;
+  width: 100vw;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+section.spacer span {
+  cursor: pointer;
+  text-transform: uppercase;
+}
+section.spacer span:nth-child(2) span.city {
+  margin-left: 0.5ex;
+  color: black;
+  font-size: 0.8rem;
+  border-bottom: 1px solid black;
+}
+section.spacer span.show-menu,
+section.spacer span.order-online {
+  border-bottom: 1px solid black;
+}
+section.spacer span:nth-child(1),
+section.spacer span:nth-child(2),
+section.spacer span:nth-child(3) {
+  color: rgba(0, 0, 0, 0.472);
+  display: none;
+}
+@media (min-width: 800px) {
+  section.spacer {
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+  }
+  section.spacer span:nth-child(1),
+section.spacer span:nth-child(2),
+section.spacer span:nth-child(3) {
+    display: unset;
+  }
+}
+
+.offer {
+  height: 150vh;
+  padding: 2ex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 2fr;
+  gap: 2ex;
+}
+.offer__card {
+  position: relative;
+  background-size: cover;
+  background-position: bottom;
+}
+.offer__card.burgers {
+  background-image: url(../assets/cards/front-view-burger-stand.jpg);
+}
+.offer__card.limited_offer1 {
+  background-image: url(../assets/cards/pattern.png);
+}
+.offer__card.limited_offer2 {
+  background-image: url(../assets/cards/front-view-burgers-stand.jpg);
+}
+.offer__card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0px 0px 80px 80px rgba(0, 0, 0, 0.936);
+}
+.offer__hero {
+  position: relative;
+  grid-column: span 3;
+  padding: 4ex;
+  background-image: url(../assets/cards/burgers-and-dips.jpg);
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 8vw 1fr 8vw;
+  grid-auto-flow: row;
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
+  row-gap: 4ex;
+}
+.offer__hero > * {
+  z-index: 2;
+  color: white;
+  grid-column: 2/3;
+}
+.offer__hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.32);
+}
+.offer__hero h6 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.offer__hero h1 {
+  font-size: 4vw;
+  width: 21ch;
+  text-transform: uppercase;
+  padding: 0.5ex 0ex 0.5ex 1ex;
+  border-left: 4px solid orange;
+}
+.offer__hero p {
+  width: 50ch;
+  letter-spacing: 1px;
+  line-height: 1.6;
+}
+.offer__hero .button-container {
+  display: flex;
+  gap: 2ex;
+}
+.offer__hero .button-container .button {
+  padding: 2ex 2.5ex;
+  border-radius: 0.75ex;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: 250ms ease-in;
+  box-shadow: 0px 5px 10px -5px rgba(255, 255, 255, 0.266);
+}
+.offer__hero .button-container .button:hover {
+  transform: translateY(-4px);
+}
+.offer__hero .button-container .about-food {
+  background-color: orange;
+}
+.offer__hero .button-container .view-menu {
+  background-color: rgba(0, 0, 0, 0.468);
 }/*# sourceMappingURL=main.css.map */
