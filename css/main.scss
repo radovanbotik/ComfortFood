@@ -196,8 +196,8 @@ a {
 .socials {
   list-style: none;
   position: fixed;
-  bottom: 5em;
-  left: 1ex;
+  bottom: 40%;
+  right: 1ex;
   margin-left: auto;
   gap: 1ex;
   display: flex;
@@ -206,21 +206,19 @@ a {
 
   a {
     // background-color: rgba(233, 152, 1, 0.847);
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.359);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1ex;
-    // clip-path: circle(45%);
-    // clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    // clip-path: circle(50%);
     border-radius: 1ex;
-
     transition: 150ms ease-in;
-    box-shadow: -10px 0px 40px 0px rgba(163, 163, 163, 0.562);
+    box-shadow: -10px 0px 40px 0px rgba(0, 0, 0, 0.562);
     &:hover {
       background-color: white;
       transform: translateY(-1px);
-      box-shadow: -10px 0px 40px 20px rgba(168, 168, 168, 0.562);
+      box-shadow: -10px 0px 20px 10px rgba(168, 168, 168, 0.562);
     }
     svg {
       width: clamp(16px, 1.3vw, 2vw);
@@ -620,10 +618,9 @@ a {
     }
   }
   &__slider {
-    // overflow: hidden;
+    overflow: hidden;
     background-image: url(../assets/textures/crumpled-paper2.jpg);
     background-size: cover;
-
     height: 100%;
     width: 100%;
     position: relative;
@@ -634,6 +631,7 @@ a {
       top: 0;
       left: 0;
       color: white;
+      transition: 250ms ease-in;
       .control {
         background-image: url(../assets/textures/asfalt-dark.png);
         background-color: rgb(255, 0, 89);
