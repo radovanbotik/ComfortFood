@@ -1,5 +1,5 @@
-const slider = document.querySelector(".slider");
-const sliderInner = document.querySelector(".slider__inner");
+const slider = document.querySelector("#slider-burgers");
+const sliderInner = document.querySelector("#slider-burgers__inner");
 const slides = document.querySelectorAll(".slider__inner__slide");
 const sliderCenterLeft = slider.getBoundingClientRect().width / 2 - 20;
 const sliderCenterRight = slider.getBoundingClientRect().width / 2 + 20;
