@@ -594,10 +594,9 @@ a {
   }
 }
 .reviews {
-  height: 60vh;
+  height: 40vh;
   margin: 2ex;
   position: relative;
-  background-color: grey;
   .button {
     position: absolute;
     top: 50%;
@@ -610,8 +609,51 @@ a {
     }
   }
   &__slider {
+    height: 100%;
+    width: 100%;
+    position: relative;
     &__card {
-      position: relative;
+      position: absolute;
+      width: 100%;
+
+      .control {
+        background-image: url(../assets/textures/asfalt-dark.png);
+        width: 100%;
+        height: 80%;
+        position: relative;
+        display: grid;
+        grid-template-rows: min-content 1fr;
+        grid-template-columns: auto 1fr;
+        row-gap: 2ex;
+        padding: 4ex;
+        border: 1px solid black;
+        .quotation-mark {
+          position: absolute;
+          height: 20%;
+          aspect-ratio: 1;
+          background-color: black;
+          &__top {
+            top: -10%;
+            left: -5%;
+          }
+          &__bottom {
+            bottom: -10%;
+            right: -5%;
+          }
+        }
+        .customer {
+          align-self: flex-end;
+          justify-self: end;
+        }
+        .rating {
+          align-self: flex-end;
+          justify-self: end;
+        }
+        .review {
+          grid-column: span 2;
+          text-align: right;
+        }
+      }
     }
   }
 }
