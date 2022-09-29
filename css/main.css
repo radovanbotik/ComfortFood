@@ -506,6 +506,7 @@ a {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 4;
 }
 .reviews .button__prev {
   left: 0%;
@@ -522,11 +523,14 @@ a {
 }
 .reviews__slider__card {
   height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  color: white;
 }
 .reviews__slider__card .control {
+  background-image: url(../assets/textures/asfalt-dark.png);
   background-color: rgb(255, 0, 89);
   background-size: cover;
   width: 100%;
@@ -538,35 +542,43 @@ a {
   grid-template-columns: 1fr auto;
   row-gap: 2ex;
   padding: 4ex;
-  border: 1px solid black;
+  border: 1ex double white;
 }
 .reviews__slider__card .control .quotation-mark {
   position: absolute;
   height: 20%;
   aspect-ratio: 1;
-  background-color: black;
+  z-index: 2;
+}
+.reviews__slider__card .control .quotation-mark img {
+  height: 90%;
+  width: 90%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  filter: invert(100%);
 }
 .reviews__slider__card .control .quotation-mark__top {
-  top: -10%;
-  left: -5%;
+  top: 20%;
+  left: 5%;
 }
 .reviews__slider__card .control .quotation-mark__bottom {
-  bottom: -10%;
-  right: -5%;
+  bottom: 20%;
+  right: 5%;
+}
+.reviews__slider__card .control .quotation-mark__bottom img {
+  transform: rotate(180deg);
 }
 .reviews__slider__card .control .customer {
   grid-row: 3;
   grid-column: 2;
   align-self: flex-end;
   justify-self: end;
-  color: black;
 }
 .reviews__slider__card .control .rating {
   grid-column: 2;
   align-self: flex-end;
   justify-self: end;
   text-align: right;
-  color: black;
 }
 .reviews__slider__card .control .review {
   grid-column: 2;

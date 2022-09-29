@@ -611,6 +611,7 @@ a {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 4;
     &__prev {
       left: 0%;
     }
@@ -619,6 +620,7 @@ a {
     }
   }
   &__slider {
+    // overflow: hidden;
     background-image: url(../assets/textures/crumpled-paper2.jpg);
     background-size: cover;
 
@@ -627,11 +629,13 @@ a {
     position: relative;
     &__card {
       height: 100%;
+      width: 100%;
       position: absolute;
       top: 0;
       left: 0;
+      color: white;
       .control {
-        // background-image: url(../assets/textures/crumpled-paper2.jpg);
+        background-image: url(../assets/textures/asfalt-dark.png);
         background-color: rgb(255, 0, 89);
         background-size: cover;
         width: 100%;
@@ -642,19 +646,30 @@ a {
         grid-template-columns: 1fr auto;
         row-gap: 2ex;
         padding: 4ex;
-        border: 1px solid black;
+        border: 1ex double white;
         .quotation-mark {
           position: absolute;
           height: 20%;
           aspect-ratio: 1;
-          background-color: black;
+          // background-color: black;
+          z-index: 2;
+
+          img {
+            height: 90%;
+            width: 90%;
+            object-fit: contain;
+            filter: invert(100%);
+          }
           &__top {
-            top: -10%;
-            left: -5%;
+            top: 20%;
+            left: 5%;
           }
           &__bottom {
-            bottom: -10%;
-            right: -5%;
+            bottom: 20%;
+            right: 5%;
+            img {
+              transform: rotate(180deg);
+            }
           }
         }
         .customer {
@@ -663,15 +678,12 @@ a {
 
           align-self: flex-end;
           justify-self: end;
-          color: black;
         }
         .rating {
           grid-column: 2;
           align-self: flex-end;
           justify-self: end;
           text-align: right;
-
-          color: black;
         }
         .review {
           grid-column: 2;
