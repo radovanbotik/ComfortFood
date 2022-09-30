@@ -416,7 +416,15 @@ a {
     grid-row: span 1;
     grid-column: 1/-1;
     min-height: 250px;
+    transition: all 150ms ease-in;
 
+    &:not(:last-child) {
+      filter: grayscale(20%);
+    }
+    &:hover {
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
     @include screen-lg {
       grid-row: 1;
       grid-column: span 1;
@@ -451,14 +459,6 @@ a {
     }
     &.limited_offer2 {
       background-image: url(../assets/cards/front-view-burgers-stand.jpg);
-    }
-  }
-  &__card:not(:last-child) {
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      // box-shadow: inset 0px 0px 20vw 10vw rgba(0, 0, 0, 0.295);
     }
   }
   &__hero {
