@@ -163,30 +163,10 @@ img {
       cursor: pointer;
       transition: all 250ms ease-in;
 
-      // &::before,
-      // &::after {
-      //   content: "";
-      //   position: absolute;
-      //   width: 0;
-      //   height: 1px;
-      //   background-color: black;
-      //   opacity: 0;
-      //   transition: all 250ms steps(1);
-      // }
-      // &::before {
-      //   top: 0;
-      //   left: 0;
-      // }
-      // &::after {
-      //   background-color: black;
-      //   bottom: 0;
-      //   left: 0;
-      // }
-
       &:hover {
-        text-decoration-line: underline overline;
+        text-decoration-line: underline;
         text-decoration-thickness: 2px;
-        text-underline-offset: 8px;
+        text-underline-offset: 4px;
         transform: translateY(-2px);
         color: orange;
         text-decoration-color: orange;

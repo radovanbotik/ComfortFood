@@ -155,10 +155,10 @@ img {
   transition: all 250ms ease-in;
 }
 .main-header .sitelinks li:hover {
-  -webkit-text-decoration-line: underline overline;
-          text-decoration-line: underline overline;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
   text-decoration-thickness: 2px;
-  text-underline-offset: 8px;
+  text-underline-offset: 4px;
   transform: translateY(-2px);
   color: orange;
   -webkit-text-decoration-color: orange;
