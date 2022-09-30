@@ -355,6 +355,8 @@ a {
   // width: 100vw;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  background-image: url(../assets/textures/crumpled-paper2.jpg);
+  background-size: cover;
   // display: flex;
   // justify-content: space-around;
   // align-items: center;
@@ -398,19 +400,23 @@ a {
   }
 }
 .offer {
-  max-height: 200vh;
+  // max-height: 200vh;
   margin: 2ex;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 2fr;
   gap: 2ex;
+
   @include screen-lg {
     grid-template-rows: 1fr 2fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2ex;
   }
   &__card {
     grid-row: span 1;
     grid-column: 1/-1;
+    min-height: 250px;
+
     @include screen-lg {
       grid-row: 1;
       grid-column: span 1;
@@ -419,6 +425,23 @@ a {
     position: relative;
     background-size: cover;
     background-position: bottom;
+
+    display: grid;
+    place-items: center;
+    &__header {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 1ex;
+
+      &__headline {
+        font-size: clamp(30px, 1.5vw, 2.5vw);
+      }
+      &__icon {
+        font-size: clamp(30px, 1.5vw, 2.5vw);
+        color: white;
+      }
+    }
 
     &.burgers {
       background-image: url(../assets/cards/front-view-burger-stand.jpg);
@@ -435,7 +458,7 @@ a {
       content: "";
       position: absolute;
       inset: 0;
-      box-shadow: inset 0px 0px 20vw 10vw rgba(0, 0, 0, 0.295);
+      // box-shadow: inset 0px 0px 20vw 10vw rgba(0, 0, 0, 0.295);
     }
   }
   &__hero {
@@ -447,7 +470,7 @@ a {
     // display: flex;
     // flex-direction: column;
     display: grid;
-    grid-template-columns: 8vw 1fr 8vw;
+    grid-template-columns: 4vw 1fr 8vw;
     grid-auto-flow: row;
     grid-auto-rows: max-content;
     row-gap: 4ex;
@@ -473,6 +496,7 @@ a {
       padding: 0.5ex 0ex 0.5ex 1ex;
       border-left: 4px solid orange;
     }
+
     p {
       width: 50ch;
       letter-spacing: 1px;
@@ -603,35 +627,53 @@ a {
 }
 .reviews {
   height: 40vh;
-  margin: 2ex;
+  padding: 2ex;
   position: relative;
+  background-image: url(../assets/textures/crumpled-paper2.jpg);
+  background-size: cover;
   .button {
+    height: 30%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 4;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+
     &__prev {
-      left: 0%;
+      left: 2%;
+      span {
+        font-size: clamp(20px, 3vw, 4vw);
+      }
     }
     &__next {
-      right: 0%;
+      right: 2%;
+      span {
+        font-size: clamp(4ex, 3vw, 4vw);
+      }
     }
   }
   &__slider {
     overflow: hidden;
-    background-image: url(../assets/textures/crumpled-paper2.jpg);
-    background-size: cover;
+
     height: 100%;
     width: 100%;
     position: relative;
+
     &__card {
       height: 100%;
       width: 100%;
       position: absolute;
       top: 0;
       left: 0;
+
       color: white;
       transition: 250ms ease-in;
+      @include screen-lg {
+        width: 50%;
+      }
       .control {
         background-image: url(../assets/textures/asfalt-dark.png);
         background-color: rgb(255, 0, 89);
@@ -690,5 +732,21 @@ a {
         }
       }
     }
+  }
+}
+.offer.offer-reversed {
+  grid-template-rows: 2fr 1fr 1fr 1fr;
+
+  .offer__card {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+  .offer__hero {
+    grid-row: 1;
+    grid-column: 1/-1;
+  }
+  @include screen-lg {
+    grid-template-rows: 2fr 1fr;
+    gap: 2ex;
   }
 }
