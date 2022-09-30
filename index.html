@@ -14,7 +14,7 @@
     <title>Document</title>
   </head>
   <body>
-    <header class="main-header">
+    <header class="main-header" id="site-header">
       <nav class="navigation">
         <a href="/" class="navigation__logo"><h1>burger&fries</h1></a>
         <!-- <ul class="navigation__socials">
@@ -136,206 +136,308 @@
         </a>
       </li>
     </ul>
-    <section class="slider-burgers" id="slider-burgers">
-      <div class="slider-burgers__inner" id="slider-burgers__inner">
-        <div class="slider-burgers__inner__slide active" data-id="active">
-          <img src="./assets/burgers/burger1.png" alt="" />
-          <h2>Cheesy goodness!</h2>
-          <h3>Cheeseburger</h3>
+    <main>
+      <section class="slider-burgers" id="slider-burgers">
+        <div class="slider-burgers__inner" id="slider-burgers__inner">
+          <div class="slider-burgers__inner__slide active" data-id="active">
+            <img src="./assets/burgers/burger1.png" alt="" />
+            <h2>Cheesy goodness!</h2>
+            <h3>Cheeseburger</h3>
+          </div>
+          <div class="slider-burgers__inner__slide">
+            <img src="./assets/burgers/burger1.png" alt="" />
+            <h2>burger description</h2>
+            <h3>burger</h3>
+          </div>
+          <div class="slider-burgers__inner__slide">
+            <img src="./assets/burgers/burger1.png" alt="" />
+          </div>
+          <div class="slider-burgers__inner__slide">
+            <img src="./assets/burgers/burger1.png" alt="" />
+          </div>
+          <div class="slider-burgers__inner__slide">
+            <img src="./assets/burgers/burger1.png" alt="" />
+          </div>
+          <div class="slider-burgers__inner__slide">
+            <img src="./assets/burgers/burger1.png" alt="" />
+          </div>
+          <div class="slider-burgers__inner__slide">
+            <img src="./assets/burgers/burger1.png" alt="" />
+          </div>
         </div>
-        <div class="slider-burgers__inner__slide">
-          <img src="./assets/burgers/burger1.png" alt="" />
-          <h2>burger description</h2>
-          <h3>burger</h3>
+      </section>
+      <section class="spacer">
+        <span>pet friendly</span>
+        <span
+          >we are open!<a href=""><span class="city">Trnava</span></a></span
+        >
+        <span>original burgers handmade instore daily</span>
+        <span class="show-menu">see menu <a href="">IC</a></span>
+        <span class="order-online">order online <a href="">IC</a></span>
+      </section>
+      <section class="offer">
+        <div class="offer__card burgers">
+          <img
+            src="./assets/cards/front-view-burger-stand.jpg"
+            class="offer__card__image"
+            alt=""
+          />
         </div>
-        <div class="slider-burgers__inner__slide">
-          <img src="./assets/burgers/burger1.png" alt="" />
+        <div class="offer__card limited_offer1">
+          <img
+            src="./assets/cards/pattern.png"
+            class="offer__card__image"
+            alt=""
+          />
         </div>
-        <div class="slider-burgers__inner__slide">
-          <img src="./assets/burgers/burger1.png" alt="" />
+        <div class="offer__card limited_offer2">
+          <img
+            src="./assets/cards/front-view-burgers-stand.jpg"
+            class="offer__card__image"
+            alt=""
+          />
         </div>
-        <div class="slider-burgers__inner__slide">
-          <img src="./assets/burgers/burger1.png" alt="" />
-        </div>
-        <div class="slider-burgers__inner__slide">
-          <img src="./assets/burgers/burger1.png" alt="" />
-        </div>
-        <div class="slider-burgers__inner__slide">
-          <img src="./assets/burgers/burger1.png" alt="" />
-        </div>
-      </div>
-    </section>
-    <section class="spacer">
-      <span>pet friendly</span>
-      <span
-        >we are open!<a href=""><span class="city">Trnava</span></a></span
-      >
-      <span>original burgers handmade instore daily</span>
-      <span class="show-menu">see menu <a href="">IC</a></span>
-      <span class="order-online">order online <a href="">IC</a></span>
-    </section>
-    <section class="offer">
-      <div class="offer__card burgers"></div>
-      <div class="offer__card limited_offer1"></div>
-      <div class="offer__card limited_offer2"></div>
-      <article class="offer__hero">
-        <h6>secret mixture of more than 20 herbs & spices</h6>
-        <h1>our signature sauce is the star of the show.</h1>
-        <p>
-          A sauce that complements all of our burgers, taking them to the next
-          level. Our secret sauces come in ‘Homemade Classic’, 'Hot Signature'
-          or 'Smokin’ Hot BBQ Sauce' to suit all your taste buds. Discover our
-          secret burger recipes for an amazing taste.
-        </p>
-        <div class="button-container">
-          <a href="" class="button button__about-food">about our food</a>
-          <a href="" class="button button__view-menu">view our menu</a>
-        </div>
-      </article>
-    </section>
-    <section class="limited">
-      <div class="limited__logo">BURGER&FRIES</div>
-      <div class="limited__embeded">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/SvOx7tA_Cv8"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <h1 class="limited__caption-headline">MEET OUR LIMITED RANGE</h1>
-      <h5 class="limited__caption-body">
-        ENJOY THE AWESOME TASTE OF THE FIERY LEGEND BURGER OR THE BEEF NACHO
-        MELT BURGERS - FOR A LIMITED TIME ONLY. <a href=""> CHECK THEM OUT!</a>
-      </h5>
-    </section>
-    <section class="reviews">
-      <button class="button button__prev" id="reviews-button-prev">
-        <span class="material-symbols-outlined"> arrow_back_ios </span>
-      </button>
-      <div class="reviews__slider" id="slider-reviews">
-        <article class="reviews__slider__card" data-id="card-review">
-          <div class="control">
-            <div class="quotation-mark quotation-mark__top">
-              <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
-            </div>
-            <!-- <div class="quotation-mark quotation-mark__bottom">
-              <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
-            </div> -->
-            <h5 class="customer">our customer</h5>
-            <h2 class="rating">Excellent!!</h2>
-            <p class="review">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatum ex iusto assumenda rem, numquam a, tenetur itaque
-              temporibus sunt sit voluptatem, laboriosam asperiores atque saepe
-              est deleniti dolore labore quas?
-            </p>
+        <article class="offer__hero">
+          <h6>secret mixture of more than 20 herbs & spices</h6>
+          <h1>our signature sauce is the star of the show.</h1>
+          <p>
+            A sauce that complements all of our burgers, taking them to the next
+            level. Our secret sauces come in ‘Homemade Classic’, 'Hot Signature'
+            or 'Smokin’ Hot BBQ Sauce' to suit all your taste buds. Discover our
+            secret burger recipes for an amazing taste.
+          </p>
+          <div class="button-container">
+            <a href="" class="button button__about-food">about our food</a>
+            <a href="" class="button button__view-menu">view our menu</a>
           </div>
         </article>
-        <article class="reviews__slider__card" data-id="card-review">
-          <div class="control">
-            <div class="quotation-mark quotation-mark__top">
-              <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
-            </div>
-            <!-- <div class="quotation-mark quotation-mark__bottom">
+      </section>
+      <section class="limited">
+        <div class="limited__logo">BURGER&FRIES</div>
+        <div class="limited__embeded">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/SvOx7tA_Cv8"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h1 class="limited__caption-headline">MEET OUR LIMITED RANGE</h1>
+        <h5 class="limited__caption-body">
+          ENJOY THE AWESOME TASTE OF THE FIERY LEGEND BURGER OR THE BEEF NACHO
+          MELT BURGERS - FOR A LIMITED TIME ONLY.
+          <a href=""> CHECK THEM OUT!</a>
+        </h5>
+      </section>
+      <section class="reviews">
+        <button class="button button__prev" id="reviews-button-prev">
+          <span class="material-symbols-outlined"> arrow_back_ios </span>
+        </button>
+        <div class="reviews__slider" id="slider-reviews">
+          <article class="reviews__slider__card" data-id="card-review">
+            <div class="control">
+              <div class="quotation-mark quotation-mark__top">
+                <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
+              </div>
+              <!-- <div class="quotation-mark quotation-mark__bottom">
               <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
             </div> -->
-            <h5 class="customer">our customer</h5>
-            <h2 class="rating">Superb!</h2>
-            <p class="review">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatum ex iusto assumenda rem, numquam a, tenetur itaque
-              temporibus sunt sit voluptatem, laboriosam asperiores atque saepe
-              est deleniti dolore labore quas?
-            </p>
-          </div>
-        </article>
-        <article class="reviews__slider__card" data-id="card-review">
-          <div class="control">
-            <div class="quotation-mark quotation-mark__top">
-              <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
+              <h5 class="customer">our customer</h5>
+              <h2 class="rating">Excellent!!</h2>
+              <p class="review">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatum ex iusto assumenda rem, numquam a, tenetur itaque
+                temporibus sunt sit voluptatem, laboriosam asperiores atque
+                saepe est deleniti dolore labore quas?
+              </p>
             </div>
-            <!-- <div class="quotation-mark quotation-mark__bottom">
+          </article>
+          <article class="reviews__slider__card" data-id="card-review">
+            <div class="control">
+              <div class="quotation-mark quotation-mark__top">
+                <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
+              </div>
+              <!-- <div class="quotation-mark quotation-mark__bottom">
               <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
             </div> -->
-            <h5 class="customer">our customer</h5>
-            <h2 class="rating">GREAT!</h2>
-            <p class="review">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatum ex iusto assumenda rem, numquam a, tenetur itaque
-              temporibus sunt sit voluptatem, laboriosam asperiores atque saepe
-              est deleniti dolore labore quas?
-            </p>
-          </div>
-        </article>
-        <article class="reviews__slider__card" data-id="card-review">
-          <div class="control">
-            <div class="quotation-mark quotation-mark__top">
-              <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
+              <h5 class="customer">our customer</h5>
+              <h2 class="rating">Superb!</h2>
+              <p class="review">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatum ex iusto assumenda rem, numquam a, tenetur itaque
+                temporibus sunt sit voluptatem, laboriosam asperiores atque
+                saepe est deleniti dolore labore quas?
+              </p>
             </div>
-            <!-- <div class="quotation-mark quotation-mark__bottom">
+          </article>
+          <article class="reviews__slider__card" data-id="card-review">
+            <div class="control">
+              <div class="quotation-mark quotation-mark__top">
+                <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
+              </div>
+              <!-- <div class="quotation-mark quotation-mark__bottom">
               <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
             </div> -->
-            <h5 class="customer">our customer</h5>
-            <h2 class="rating">VERY PLEASED!</h2>
-            <p class="review">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatum ex iusto assumenda rem, numquam a, tenetur itaque
-              temporibus sunt sit voluptatem, laboriosam asperiores atque saepe
-              est deleniti dolore labore quas?
-            </p>
+              <h5 class="customer">our customer</h5>
+              <h2 class="rating">GREAT!</h2>
+              <p class="review">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatum ex iusto assumenda rem, numquam a, tenetur itaque
+                temporibus sunt sit voluptatem, laboriosam asperiores atque
+                saepe est deleniti dolore labore quas?
+              </p>
+            </div>
+          </article>
+          <article class="reviews__slider__card" data-id="card-review">
+            <div class="control">
+              <div class="quotation-mark quotation-mark__top">
+                <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
+              </div>
+              <!-- <div class="quotation-mark quotation-mark__bottom">
+              <img src="./assets/quotationmarks/Asset 7@4x.png" alt="" />
+            </div> -->
+              <h5 class="customer">our customer</h5>
+              <h2 class="rating">VERY PLEASED!</h2>
+              <p class="review">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatum ex iusto assumenda rem, numquam a, tenetur itaque
+                temporibus sunt sit voluptatem, laboriosam asperiores atque
+                saepe est deleniti dolore labore quas?
+              </p>
+            </div>
+          </article>
+        </div>
+        <button class="button button__next" id="reviews-button-next">
+          <span class="material-symbols-outlined"> arrow_forward_ios </span>
+        </button>
+      </section>
+      <section class="offer offer-reversed">
+        <div class="offer__card burgers">
+          <div class="offer__card__header">
+            <h1 class="offer__card__header__headline">view our menu</h1>
+            <span class="material-symbols-outlined offer__card__header__icon">
+              arrow_forward
+            </span>
+          </div>
+          <img
+            src="./assets/cards/front-view-burger-stand.jpg"
+            class="offer__card__image"
+            alt=""
+          />
+        </div>
+        <div class="offer__card limited_offer1">
+          <div class="offer__card__header">
+            <h1 class="offer__card__header__headline">locate us</h1>
+            <span class="material-symbols-outlined offer__card__header__icon">
+              arrow_forward
+            </span>
+          </div>
+          <img
+            src="./assets/cards/pattern.png"
+            class="offer__card__image"
+            alt=""
+          />
+        </div>
+        <div class="offer__card limited_offer2">
+          <div class="offer__card__header">
+            <h1 class="offer__card__header__headline">order now</h1>
+            <span class="material-symbols-outlined offer__card__header__icon">
+              arrow_forward
+            </span>
+          </div>
+          <img
+            src="./assets/cards/front-view-burgers-stand.jpg"
+            class="offer__card__image"
+            alt=""
+          />
+        </div>
+        <article class="offer__hero">
+          <h6>always fresh. never frozen.</h6>
+          <h1>all our burgers are made fresh.</h1>
+          <p>
+            Our original burgers are handmade in-store and come topped with
+            fresh lettuce, onions, tomato, and cheese along with a choice of our
+            ‘Homemade Classic’, ‘Hot Signature’ or 'Smokin’ Hot BBQ' Sauces. We
+            don’t freeze any of our meat patties so you can be sure you’re
+            getting top-quality ingredients & taste.
+          </p>
+          <div class="button-container">
+            <a href="" class="button button__about-food">find us</a>
+            <a href="" class="button button__view-menu">see our menu</a>
           </div>
         </article>
-      </div>
-      <button class="button button__next" id="reviews-button-next">
-        <span class="material-symbols-outlined"> arrow_forward_ios </span>
-      </button>
-    </section>
-    <section class="offer offer-reversed">
-      <div class="offer__card burgers">
-        <div class="offer__card__header">
-          <h1 class="offer__card__header__headline">view our menu</h1>
-          <span class="material-symbols-outlined offer__card__header__icon">
-            arrow_forward
-          </span>
+      </section>
+      <section class="slider-news"></section>
+      <section class="subscribe-appeal">
+        <div class="subscribe-appeal__control">
+          <div class="subscribe-appeal__control__headline">
+            <h1>KEEP UP TO DATE WITH US!</h1>
+            <p>
+              Do not let the disacounts go unnoticed.Let's fork them together!
+              Also receive news & fresh offers !
+            </p>
+          </div>
+          <button class="subscribe-appeal__control__button">
+            <span>subscribe</span>
+            <span class="material-symbols-outlined icon">
+              arrow_forward_ios
+            </span>
+          </button>
         </div>
-      </div>
-      <div class="offer__card limited_offer1">
-        <div class="offer__card__header">
-          <h1 class="offer__card__header__headline">locate us</h1>
-          <span class="material-symbols-outlined offer__card__header__icon">
-            arrow_forward
-          </span>
+        <div class="subscribe-appeal__modal">
+          <form class="subscribe-appeal__form"></form>
         </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__control">
+        <div class="site-footer__control__logo"></div>
+        <section class="site-footer__control__company">
+          <h4>burger&fries</h4>
+          <ul>
+            <li>our food</li>
+            <li>menu</li>
+            <li>limited offer</li>
+            <li>stay in touch</li>
+            <li>locate us</li>
+            <li>order online</li>
+            <li>gallery</li>
+            <li>contact us</li>
+            <li>refund policy</li>
+            <li>privacy policy</li>
+          </ul>
+        </section>
+        <section class="site-footer__control__jobs">
+          <h4>jobs</h4>
+          <ul>
+            <li>opened positions</li>
+            <li>how to apply</li>
+          </ul>
+        </section>
+        <section class="site-footer__control__socials">
+          <h4>follow us</h4>
+          <ul>
+            <li>ins</li>
+            <li>mess</li>
+            <li>twit</li>
+          </ul>
+        </section>
+        <section class="site-footer__control__disclaimer">
+          <h6>
+            COPYRIGHT © <span id="footer-year">2022</span> ALL RIGHTS RESERVED.
+            BURGER & SAUCE© LTD ALL CONTENT IS THE PROPERTY OF BURGER & SAUCE©
+            LTD AND ANY USE, DISTRIBUTION OR CHANGE MAY ONLY BE SUBJECT TO
+            PERMISSION.
+          </h6>
+        </section>
+        <!-- <div class="site-footer__control__watermark">
+          <h5>radovan botik</h5>
+        </div> -->
       </div>
-      </div>
-      <div class="offer__card limited_offer2">
-        <div class="offer__card__header">
-          <h1 class="offer__card__header__headline">order now</h1>
-          <span class="material-symbols-outlined offer__card__header__icon">
-            arrow_forward
-          </span>
-        </div>
-      </div>
-      </div>
-      <article class="offer__hero">
-        <h6>always fresh. never frozen.</h6>
-        <h1>all our burgers are made fresh.</h1>
-        <p>
-          Our original burgers are handmade in-store and come topped with fresh
-          lettuce, onions, tomato, and cheese along with a choice of our
-          ‘Homemade Classic’, ‘Hot Signature’ or 'Smokin’ Hot BBQ' Sauces. We
-          don’t freeze any of our meat patties so you can be sure you’re getting
-          top-quality ingredients & taste.
-        </p>
-        <div class="button-container">
-          <a href="" class="button button__about-food">find us</a>
-          <a href="" class="button button__view-menu">see our menu</a>
-        </div>
-      </article>
-    </section>
+    </footer>
   </body>
 </html>

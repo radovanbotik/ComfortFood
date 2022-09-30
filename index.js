@@ -1,10 +1,12 @@
 import { sliderComponent } from "./sliderComponent.js";
-import { revealLinks } from "./navComponent.js";
+import { toggleNav } from "./toggleNav.js";
 import { sliderCards } from "./sliderCards.js";
+import { anchorNav } from "./anchorNav.js";
 
 const init = () => {
   sliderComponent();
-  revealLinks();
+  toggleNav();
+  anchorNav();
   sliderCards();
 };
 
