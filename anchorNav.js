@@ -1,17 +1,20 @@
 const header = document.querySelector("#site-header");
+const offerSection = document.querySelector("#offer1");
 
 const anchorNav = () => {
-  const options = { threshold: 0 };
-  const callback = entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        entry.target.classList.add("scrolled");
-        console.log("not");
-      }
+  window.addEventListener("scroll", () => {
+    console.log({
+      window: window.pageYOffset,
+      header: header.getBoundingClientRect().height,
     });
-  };
-  const observer = new IntersectionObserver(callback, options);
-  observer.observe(header);
+
+    if (window.pageYOffset >= header.getBoundingClientRect().height) {
+      header.classList.add("scrolled");
+    }
+    if (window.pageYOffset <= header.getBoundingClientRect().height) {
+      header.classList.remove("scrolled");
+    }
+  });
 };
 
 export { anchorNav };
