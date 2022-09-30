@@ -418,7 +418,6 @@ img {
   position: relative;
   grid-column: span 3;
   padding: 4ex;
-  background-image: url(../assets/cards/burgers-and-dips.jpg);
   background-size: cover;
   display: grid;
   grid-template-columns: 4vw 1fr 8vw;
@@ -428,7 +427,7 @@ img {
   align-content: center;
   row-gap: 4ex;
 }
-.offer__hero > * {
+.offer__hero > *:not(img) {
   z-index: 2;
   color: white;
   grid-column: 2/3;
@@ -445,7 +444,7 @@ img {
 }
 .offer__hero h1 {
   font-size: 4vw;
-  width: 21ch;
+  width: 20ch;
   text-transform: uppercase;
   padding: 0.5ex 0ex 0.5ex 1ex;
   border-left: 4px solid orange;
@@ -455,6 +454,14 @@ img {
   letter-spacing: 1px;
   line-height: 1.6;
   font-size: clamp(10px, 1.25vw, 1.25vw);
+}
+.offer__hero img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  inset: 0;
 }
 .offer__hero .button-container {
   display: flex;
@@ -481,6 +488,7 @@ img {
 .limited {
   max-height: 150vh;
   background-color: rgb(191, 13, 49);
+  background-size: cover;
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
@@ -491,6 +499,9 @@ img {
   position: relative;
   box-shadow: inset 0px 0px 100px 0px rgba(0, 0, 0, 0.728);
   overflow: hidden;
+}
+.limited > *:not(.burnt-edge) {
+  z-index: 4;
 }
 .limited::before, .limited::after {
   content: "";
@@ -560,6 +571,16 @@ img {
   -webkit-text-decoration: underline 2px double;
           text-decoration: underline 2px double;
   text-underline-position: under;
+}
+.limited .burnt-edge {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+}
+.limited .burnt-edge img {
+  width: 100%;
+  height: 100%;
 }
 
 .reviews {
