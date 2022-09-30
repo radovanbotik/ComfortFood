@@ -21,6 +21,7 @@ $screen-large: 800px;
 body {
   position: relative;
   font-family: "Roboto";
+  // overflow: hidden;
 }
 
 h1,
@@ -824,7 +825,11 @@ img {
   }
 
   &__modal {
-    position: absolute;
+    // position: fixed;
+    // inset: 0;
+    // background-color: black;
+    // z-index: 1000;
+    // max-height: 100vh;
   }
 }
 .site-footer {

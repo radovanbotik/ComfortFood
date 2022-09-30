@@ -770,10 +770,6 @@ img {
 .subscribe-appeal__control__button:hover .icon {
   transform: translateX(0.5ex);
 }
-.subscribe-appeal__modal {
-  position: absolute;
-}
-
 .site-footer__control {
   max-width: 1200px;
   margin: auto;
