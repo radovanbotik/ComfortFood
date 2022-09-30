@@ -416,7 +416,7 @@ img {
 }
 .offer__hero {
   position: relative;
-  grid-column: span 3;
+  grid-column: 1/-1;
   padding: 4ex;
   background-size: cover;
   display: grid;
@@ -599,7 +599,6 @@ img {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: rgb(255, 255, 255);
 }
 .reviews .button span {
   transition: all 250ms ease-in;
@@ -628,7 +627,6 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  color: white;
   transition: 250ms ease-in;
 }
 @media (min-width: 800px) {
@@ -637,8 +635,8 @@ img {
   }
 }
 .reviews__slider__card .control {
-  background-image: url(../assets/textures/asfalt-dark.png);
-  background-color: rgb(255, 0, 89);
+  background-image: url(../assets/textures/crumpled-paper.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -649,7 +647,10 @@ img {
   grid-template-columns: 1fr auto;
   row-gap: 2ex;
   padding: 4ex;
-  border: 1ex double white;
+  border-right: 4ex solid transparent;
+}
+.reviews__slider__card .control > * {
+  color: black;
 }
 .reviews__slider__card .control .quotation-mark {
   position: absolute;
@@ -662,7 +663,6 @@ img {
   width: 90%;
   -o-object-fit: contain;
      object-fit: contain;
-  filter: invert(100%);
 }
 .reviews__slider__card .control .quotation-mark__top {
   top: 20%;
@@ -770,6 +770,10 @@ img {
 .subscribe-appeal__control__button:hover .icon {
   transform: translateX(0.5ex);
 }
+.subscribe-appeal__modal {
+  display: none;
+}
+
 .site-footer__control {
   max-width: 1200px;
   margin: auto;
