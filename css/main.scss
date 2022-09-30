@@ -48,6 +48,8 @@ img {
   object-fit: cover;
 }
 .main-header {
+  transition: all 150ms linear;
+
   &.scrolled {
     position: sticky;
     top: 0;
@@ -879,6 +881,29 @@ img {
       h5 {
         color: black;
       }
+    }
+  }
+}
+.fab {
+  position: fixed;
+  bottom: 10%;
+  right: 0%;
+  height: 60px;
+  width: 60px;
+  clip-path: circle(50%);
+  z-index: 100;
+  .circle {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.503);
+    position: relative;
+    .icon {
+      font-size: 6vw;
+      position: absolute;
+      color: white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }

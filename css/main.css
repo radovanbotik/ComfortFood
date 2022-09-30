@@ -45,6 +45,7 @@ img {
 }
 
 .main-header {
+  transition: all 150ms linear;
   display: flex;
   flex-direction: column;
 }
@@ -830,4 +831,29 @@ img {
 }
 .site-footer__control__watermark h5 {
   color: black;
+}
+
+.fab {
+  position: fixed;
+  bottom: 10%;
+  right: 0%;
+  height: 60px;
+  width: 60px;
+  -webkit-clip-path: circle(50%);
+          clip-path: circle(50%);
+  z-index: 100;
+}
+.fab .circle {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.503);
+  position: relative;
+}
+.fab .circle .icon {
+  font-size: 6vw;
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }/*# sourceMappingURL=main.css.map */
