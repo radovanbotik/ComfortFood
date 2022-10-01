@@ -228,6 +228,7 @@ header.navigation {
   display: flex;
   flex-direction: column;
   transition: var(--transition-main);
+  padding: var(--vspace-3);
 }
 header.navigation nav {
   height: 100%;

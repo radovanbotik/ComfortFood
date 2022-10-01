@@ -237,6 +237,8 @@ header.navigation {
   display: flex;
   flex-direction: column;
   transition: var(--transition-main);
+  padding: var(--vspace-3);
+
   nav {
     height: 100%;
     width: 100%;
