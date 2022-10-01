@@ -17,7 +17,7 @@ const translateSlides = () => {
   });
 };
 
-const sliderCards = () => {
+const sliderReviews = () => {
   spreadSlides();
 
   btnPrev.addEventListener("click", () => {
@@ -37,4 +37,4 @@ const sliderCards = () => {
   });
 };
 
-export { sliderCards };
+export { sliderReviews };

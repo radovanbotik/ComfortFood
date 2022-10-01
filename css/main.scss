@@ -233,7 +233,7 @@ img {
 
     // gap: 2em;
 
-    &__slide {
+    article.slide {
       //   box-sizing: content-box;
       height: 100%;
       width: 100%;
@@ -297,10 +297,10 @@ img {
         transform: scale(0.9);
       }
     }
-    &__slide:not(:last-child) {
+    article.slide:not(:last-child) {
       border-right: none;
     }
-    &__slide.active {
+    article.slide.active {
       background-image: url(../assets/textures/asfalt-dark.png);
       background-color: gold;
 
@@ -391,27 +391,23 @@ img {
     gap: 2ex;
   }
   &__card {
-    // margin: 1ex;
+    padding: 4ex;
     grid-row: span 1;
     grid-column: 1/-1;
     min-height: 250px;
     transition: all 150ms ease-in;
     position: relative;
+    display: grid;
     &:not(:last-child) {
+      @include screen-lg {
+        grid-row: 1;
+        grid-column: span 1;
+      }
     }
-    &:hover {
+    &:not(:last-child):hover {
       transform: scale(1.05);
     }
-    @include screen-lg {
-      grid-row: 1;
-      grid-column: span 1;
-    }
 
-    position: relative;
-    background-size: cover;
-    background-position: bottom;
-
-    display: grid;
     place-content: center;
     &__header {
       display: flex;
@@ -443,82 +439,80 @@ img {
       opacity: 1;
       mix-blend-mode: normal;
     }
-  }
-  &__hero {
-    position: relative;
-    grid-column: 1/-1;
-    padding: 4ex;
-    // background-image: url(../assets/cards/burgers-and-dips.jpg);
-    background-size: cover;
-    // display: flex;
-    // flex-direction: column;
-    display: grid;
-    grid-template-columns: 4vw 1fr 8vw;
-    grid-auto-flow: row;
-    grid-auto-rows: max-content;
-    align-content: center;
-    row-gap: 4ex;
-    & > *:not(img) {
-      z-index: 2;
-      color: white;
-      grid-column: 2/3;
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.32);
-    }
-    h6 {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    h1 {
-      font-size: 4vw;
-      width: 20ch;
-      text-transform: uppercase;
-      padding: 0.5ex 0ex 0.5ex 1ex;
-      border-left: 4px solid orange;
-    }
-
-    p {
-      width: 50ch;
-      letter-spacing: 1px;
-      line-height: 1.6;
-      font-size: clamp(10px, 1.25vw, 1.25vw);
-    }
-    img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      inset: 0;
-    }
-    .button-container {
-      display: flex;
-      gap: 2ex;
-      .button {
-        // padding: 2ex 2.5ex;
-        font-size: clamp(12px, 1.25vw, 1.25vw);
-        padding: clamp(0.75ex, 1ex, 2ex) clamp(0.75ex, 1ex, 2ex);
-        border-radius: 0.75ex;
+    &.hero {
+      position: relative;
+      grid-column: 1/-1;
+      padding: 4ex;
+      background-size: cover;
+      display: grid;
+      grid-template-columns: 4vw 1fr 8vw;
+      grid-auto-flow: row;
+      grid-auto-rows: max-content;
+      align-content: center;
+      row-gap: 4ex;
+      & > *:not(img) {
+        z-index: 2;
+        color: white;
+        grid-column: 2/3;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.32);
+      }
+      h6 {
         text-transform: uppercase;
-        transition: 250ms ease-in;
-        box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.294);
+        letter-spacing: 2px;
+      }
+      h1 {
+        font-size: 4vw;
+        width: 20ch;
+        text-transform: uppercase;
+        padding: 0.5ex 0ex 0.5ex 1ex;
+        border-left: 4px solid orange;
+      }
 
-        &:hover {
-          transform: translateY(-4px);
-        }
-        &__about-food {
-          background-color: orange;
-        }
-        &__view-menu {
-          background-color: rgba(0, 0, 0, 0.468);
+      p {
+        width: 50ch;
+        letter-spacing: 1px;
+        line-height: 1.6;
+        font-size: clamp(10px, 1.25vw, 1.25vw);
+      }
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        inset: 0;
+      }
+      .button-container {
+        display: flex;
+        gap: 2ex;
+        .button {
+          // padding: 2ex 2.5ex;
+          font-size: clamp(12px, 1.25vw, 1.25vw);
+          padding: clamp(0.75ex, 1ex, 2ex) clamp(0.75ex, 1ex, 2ex);
+          border-radius: 0.75ex;
+          text-transform: uppercase;
+          transition: 250ms ease-in;
+          box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.294);
+
+          &:hover {
+            transform: translateY(-4px);
+          }
+          &__about-food {
+            background-color: orange;
+          }
+          &__view-menu {
+            background-color: rgba(0, 0, 0, 0.468);
+          }
         }
       }
     }
   }
 }
+
 .limited {
   max-height: 150vh;
   background-color: rgb(191, 13, 49);
@@ -702,7 +696,7 @@ img {
         row-gap: 2ex;
         padding: 4ex;
         // border: 1ex double white;
-        border-right: 4ex solid transparent;
+        // border-right: 4ex solid transparent;
         .quotation-mark {
           position: absolute;
           height: 20%;
@@ -755,11 +749,12 @@ img {
   .offer__card {
     grid-row: span 1;
     grid-column: span 1;
+    &.hero {
+      grid-row: 1;
+      grid-column: 1/-1;
+    }
   }
-  .offer__hero {
-    grid-row: 1;
-    grid-column: 1/-1;
-  }
+
   @include screen-lg {
     grid-template-rows: 2fr 1fr;
     gap: 2ex;

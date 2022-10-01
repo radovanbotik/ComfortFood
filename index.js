@@ -1,13 +1,13 @@
-import { sliderComponent } from "./sliderComponent.js";
-import { toggleNav } from "./toggleNav.js";
-import { sliderCards } from "./sliderCards.js";
-import { anchorNav } from "./anchorNav.js";
+import { sliderMenu } from "./sliderMenu.js";
+import { navbarReveal } from "./navbarReveal.js";
+import { sliderReviews } from "./sliderReviews.js";
+import { navbarAnchor } from "./navbarAnchor.js";
 
 const init = () => {
-  sliderComponent();
-  toggleNav();
-  anchorNav();
-  sliderCards();
+  navbarReveal();
+  navbarAnchor();
+  sliderMenu();
+  sliderReviews();
 };
 
 window.addEventListener("DOMContentLoaded", init);

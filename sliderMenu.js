@@ -4,7 +4,7 @@ const slides = document.querySelectorAll(".slider__inner__slide");
 const sliderCenterLeft = slider.getBoundingClientRect().width / 2 - 20;
 const sliderCenterRight = slider.getBoundingClientRect().width / 2 + 20;
 
-const sliderComponent = () => {
+const sliderMenu = () => {
   let grabbed = false;
 
   sliderInner.addEventListener("mousedown", e => {
@@ -30,11 +30,11 @@ const sliderComponent = () => {
     }
   });
 
-  sliderInner.addEventListener("wheel", e => {
-    e.preventDefault();
-    //scroll is dictated by mouse scroll
-    slider.scrollLeft = slider.scrollLeft + e.deltaY / 2;
-  });
+  // sliderInner.addEventListener("wheel", e => {
+  //   e.preventDefault();
+  //   //scroll is dictated by mouse scroll
+  //   slider.scrollLeft = slider.scrollLeft + e.deltaY / 2;
+  // });
 };
 
-export { sliderComponent };
+export { sliderMenu };

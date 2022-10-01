@@ -16,7 +16,7 @@ const throttle = (callback, delay) => {
   };
 };
 
-const anchorNav = () => {
+const navbarAnchor = () => {
   window.addEventListener(
     "scroll",
     throttle(e => {
@@ -30,4 +30,4 @@ const anchorNav = () => {
   );
 };
 
-export { anchorNav };
+export { navbarAnchor };
