@@ -10,34 +10,200 @@
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
+.center {
+  display: grid;
+  place-items: center;
+}
+.button {
+  padding: 2ex 2.5ex;
+  border-radius: 0.5ex;
+  text-transform: uppercase;
+  transition: var(--transition-main);
+  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.294);
+  color: white;
+  border: none;
 
+  &:hover {
+    transform: translateY(-0.5ex);
+  }
+  &-main {
+    background-color: orange;
+  }
+  &-secondary {
+    background-color: rgba(0, 0, 0, 0.468);
+  }
+}
+.icon {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  span {
+    transition: var(--transition-main);
+  }
+  color: inherit;
+}
+:root {
+  --transition-main: all 150ms ease-in-out;
+  --z-index-top: 1000;
+  --z-index-middle: 500;
+  --z-index-one: 1;
+  --z-index-none: 0;
+  --border-thin: 1px solid rgba(0, 0, 0, 0.262);
+  --border-thin-dark: 1px solid rgb(0, 0, 0);
+
+  /* Base Vertical Spacing */
+  --space: 1.62;
+
+  /* Vertical Spacing - multiplier */
+  --vspace: calc(var(--space) * 1rem);
+  --vspace-0: calc(3 * var(--space) * 1rem);
+  --vspace-1: calc(2 * var(--space) * 1rem);
+  --vspace-2: calc(1.5 * var(--space) * 1rem);
+  --vspace-3: calc(0.5 * var(--space) * 1rem);
+}
 $screen-large: 800px;
 @mixin screen-lg {
   @media (min-width: #{($screen-large)}) {
     @content;
   }
 }
-
+html {
+  font-size: 10px;
+  @include screen-lg() {
+    font-size: 16px;
+  }
+}
 body {
   position: relative;
   font-family: "Roboto";
+  // max-width: calc(25 * var(--vspace));
+  margin: 0 auto;
   // overflow: hidden;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: white;
-  text-transform: uppercase;
 }
 
 a {
   text-decoration: none;
   font-family: inherit;
   color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 3rem 0 1.38rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+  color: white;
+  text-transform: uppercase;
+}
+
+p {
+  margin: var(--vspace) 0;
+  line-height: var(--vspace);
+}
+
+h1 {
+  margin: var(--vspace-1) 0 var(--vspace-1) 0;
+  line-height: calc(3.6458 / var(--space) * var(--vspace));
+}
+
+h2 {
+  margin: var(--vspace-2) 0 var(--vspace-3) 0;
+  line-height: 1em;
+}
+
+h3 {
+  margin: var(--vspace-1) 0 var(--vspace-3) 0;
+  line-height: 1em;
+}
+
+h4,
+h5,
+h6 {
+  margin: var(--vspace-2) 0 var(--vspace-3) 0;
+  line-height: var(--vspace);
+}
+
+.bigtitle,
+h1 {
+  font-size: 3.6458em;
+  word-break: break-word;
+}
+
+.title,
+h2 {
+  font-size: 2em;
+  font-weight: lighter;
+  word-break: break-word;
+}
+
+.subheading1,
+h3 {
+  font-size: 1.4167em;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+blockquote {
+  font-size: 0.8333em;
+  font-style: italic;
+  line-height: calc(0.8333 * var(--vspace));
+  margin: var(--vspace-2) var(--vspace-2);
+}
+
+.subheading2,
+h4 {
+  font-size: 1.0833em;
+  text-transform: capitalize;
+}
+
+.subheading3,
+h5 {
+  font-size: 1em;
+  font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.subheading4,
+h6 {
+  font-size: 0.8333em;
+  font-weight: normal;
+  font-style: italic;
+  font-family: "le-monde-livre-classic-byol", serif !important;
+  letter-spacing: 0px !important;
+}
+
+.caption_ts {
+  font-size: 0.7083em;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.endnote_ts {
+  font-size: 0.7083em;
+}
+
+.footnote_ts {
+  margin: var(--vspace-0) 0 var(--vspace-2) 0;
+  font-size: 0.6458em;
+  border-top: 1px solid #ccc;
+  line-height: 2em;
+}
+
+sup {
+  font-size: 0.6458rem;
+  margin: 0.5em;
+  text-transform: none;
+  font-style: italic;
+  font-weight: normal;
+}
+.toggle-icon {
+  margin: var(--vspace-2) 0 var(--vspace-3) 0;
 }
 ul {
   list-style: none;
@@ -48,66 +214,20 @@ img {
   display: block;
   object-fit: cover;
 }
-.main-header {
-  transition: all 150ms linear;
-
-  &.scrolled {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: black;
-    color: white;
-    overflow: hidden;
-    .navigation {
-      padding: 1ex 2ex;
-      &__logo {
-        font-size: 2vw;
-        padding: 0;
-        h1 {
-          text-shadow: -4px -4px 40px white, 4px 4px 20px white;
-          color: white;
-        }
-      }
-      &__toggle {
-        span {
-          font-size: 6vw;
-        }
-      }
-    }
-  }
-
+.navigation {
   display: flex;
   flex-direction: column;
-  @include screen-lg {
-    flex-direction: row;
-    align-items: center;
-  }
-  // display: flex;
-  // align-items: center;
-
-  .navigation {
+  transition: var(--transition-main);
+  nav {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2ex 4ex;
-    ul {
-      flex-grow: 0;
-      height: auto;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 2ex;
-      li {
-        padding: 1ex 0ex;
-      }
-    }
-    &__logo {
-      border: 0.5ex solid rgb(0, 0, 0);
-      padding: 1ex 2ex;
-      font-size: 2vh;
-      h1 {
+    color: rgb(1, 1, 1);
+    // align-items: baseline;
+    a.logo {
+      h2 {
         color: rgb(1, 1, 1);
       }
       &:hover {
@@ -115,52 +235,45 @@ img {
       }
     }
 
-    &__toggle {
-      span {
-        // font-size: clamp(7vw, 2vw, 3vw);
-        font-size: 7vw;
-      }
+    div.toggle-icon {
       cursor: pointer;
       @include screen-lg {
         display: none;
       }
     }
+    // padding: 2ex 4ex;
+    ul {
+      // flex-grow: 0;
+      height: auto;
+      display: flex;
+      // align-items: center;
+      // gap: 2ex;
+      li {
+        padding: 1ex 0ex;
+      }
+    }
   }
-  .sitelinks {
-    padding: 0 4ex;
-    display: flex;
+  ul.navigation-links {
     height: 0;
+    padding: 0 4ex;
     overflow: hidden;
-    justify-content: end;
-    gap: 4ex;
-
-    list-style: none;
     display: flex;
+    justify-content: end;
     align-items: center;
     gap: 2ex;
-    @include screen-lg {
-      height: auto;
-      overflow: unset;
-    }
-
-    li {
-      padding: 1ex 0ex;
-    }
-
     &.active {
       height: auto;
       overflow: unset;
     }
-    li {
-      font-size: clamp(12px, 1.5vw, 1.8vw);
-      text-transform: uppercase;
-      position: relative;
-      font-family: "Roboto", sans-serif;
-      white-space: nowrap;
+    li.link {
       cursor: pointer;
-      transition: all 250ms ease-in;
-
-      &:hover {
+      h4 {
+        white-space: nowrap;
+        text-transform: uppercase;
+        color: black;
+        transition: var(--transition-main);
+      }
+      &:hover h4 {
         text-decoration-line: underline;
         text-decoration-thickness: 2px;
         text-underline-offset: 4px;
@@ -169,6 +282,34 @@ img {
         text-decoration-color: orange;
       }
     }
+    @include screen-lg {
+      height: auto;
+      overflow: unset;
+    }
+  }
+  &.scrolled {
+    top: 0;
+    position: sticky;
+    z-index: var(--z-index-top);
+    background-color: black;
+    color: white;
+    overflow: hidden;
+    nav {
+      color: white;
+      .logo h2 {
+        text-shadow: -4px -4px 40px white, 4px 4px 20px white;
+        color: white;
+      }
+    }
+    .navigation-links {
+      .link a h4 {
+        color: white;
+      }
+    }
+  }
+  @include screen-lg {
+    flex-direction: row;
+    align-items: center;
   }
 }
 .socials {
@@ -181,7 +322,6 @@ img {
   display: flex;
   flex-direction: column;
   z-index: 100;
-
   a {
     // background-color: rgba(233, 152, 1, 0.847);
     background-color: rgba(0, 0, 0, 0.359);
@@ -213,13 +353,10 @@ img {
   padding: 2em;
   margin: 0 auto;
   height: 80vh;
-  width: calc(100% - 4em);
+  width: 100%;
   position: relative;
-  //   background-color: green;
   overflow-x: scroll;
-  //   margin-bottom: 2em;
   cursor: grab;
-
   &::-webkit-scrollbar {
     display: none;
   }
@@ -229,24 +366,22 @@ img {
     left: 0;
     height: 100%;
     display: flex;
-    align-items: center;
-
-    // gap: 2em;
 
     article.slide {
-      //   box-sizing: content-box;
+      flex-shrink: 0;
       height: 100%;
       width: 100%;
-      flex-shrink: 0;
-      display: grid;
-      place-content: center;
       position: relative;
-      border: 1px solid rgba(0, 0, 0, 0.262);
+      border: var(--border-thin);
 
-      display: grid;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 4vh 1fr 1fr 1fr 4vh;
       grid-template-columns: 2vw 1fr 2vw;
-
+      grid-template-areas:
+        ". . ."
+        ". a ."
+        ". . ."
+        ". b ."
+        ". . .";
       //solution to drag
       user-drag: none;
       -webkit-user-drag: none;
@@ -254,47 +389,34 @@ img {
       -moz-user-select: none;
       -webkit-user-select: none;
       -ms-user-select: none;
-
-      @include screen-lg {
-        width: 33%;
-      }
-
-      h2 {
-        grid-row: 2/3;
-        grid-column: 2/3;
-        z-index: 2;
-        justify-self: center;
-        align-self: flex-end;
-        text-transform: uppercase;
-        font-size: 3.5vw;
-        margin-bottom: 1ex;
+      h2,
+      h3 {
+        z-index: var(--z-index-one);
         text-align: center;
+      }
+      h2 {
+        grid-area: b;
+        align-self: flex-end;
       }
       h3 {
-        grid-row: 1/2;
-        grid-column: 2/3;
-        z-index: 2;
-        justify-self: center;
-
-        text-transform: uppercase;
-        font-size: 2.5vw;
-        margin-top: 1ex;
-        text-align: center;
+        grid-area: a;
+        align-self: flex-start;
       }
 
       img {
-        grid-row: 1/3;
-        grid-column: 2/3;
-
-        width: 90%;
-        height: 90%;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
         object-fit: cover;
         pointer-events: none;
         z-index: 1;
-        position: relative;
         align-self: center;
         justify-self: center;
         transform: scale(0.9);
+      }
+      @include screen-lg {
+        width: 33%;
       }
     }
     article.slide:not(:last-child) {
@@ -313,13 +435,10 @@ img {
         width: 80%;
         height: 80%;
         opacity: 0.7;
-        // position: absolute;
-        // top: 50%;
-        // left: 50%;
-        grid-row: 1/3;
-        grid-column: 1/-1;
-        align-self: center;
-        justify-self: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
       img {
@@ -330,49 +449,37 @@ img {
 }
 .spacer {
   height: 12vh;
-  // width: 100vw;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: var(--border-thin);
+  border-bottom: var(--border-thin);
   background-image: url(../assets/textures/crumpled-paper2.jpg);
   background-size: cover;
-  // display: flex;
-  // justify-content: space-around;
-  // align-items: center;
-  display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  align-items: center;
+
   span {
-    cursor: pointer;
     text-transform: uppercase;
-  }
-  span:nth-child(1) {
-  }
-  span:nth-child(2) {
+    max-width: 30ch;
+    white-space: nowrap;
     span.city {
       margin-left: 0.5ex;
       color: black;
-      font-size: 0.8rem;
-      border-bottom: 1px solid black;
+      text-decoration: underline;
     }
   }
-  span:nth-child(3) {
+  span.quote {
+    white-space: normal;
+    text-align: center;
   }
-  span.show-menu,
-  span.order-online {
-    border-bottom: 1px solid black;
+  span.links {
+    cursor: pointer;
+    text-decoration: underline;
   }
-  span:nth-child(1),
-  span:nth-child(2),
-  span:nth-child(3) {
+  span:not(.links) {
     color: rgba(0, 0, 0, 0.472);
     display: none;
   }
   @include screen-lg {
     grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
-    span:nth-child(1),
-    span:nth-child(2),
-    span:nth-child(3) {
+    span:not(.links) {
       display: unset;
     }
   }
@@ -391,46 +498,33 @@ img {
     gap: 2ex;
   }
   &__card {
+    position: relative;
     padding: 4ex;
     grid-row: span 1;
     grid-column: 1/-1;
     min-height: 250px;
-    transition: all 150ms ease-in;
-    position: relative;
-    display: grid;
-    &:not(:last-child) {
+    transition: var(--transition-main);
+    &:not(.hero) {
+      &:hover {
+        transform: scale(1.05);
+      }
       @include screen-lg {
         grid-row: 1;
         grid-column: span 1;
       }
     }
-    &:not(:last-child):hover {
-      transform: scale(1.05);
-    }
 
-    place-content: center;
     &__header {
       display: flex;
       align-items: center;
       flex-direction: column;
-      gap: 1ex;
+      gap: 2ex;
       z-index: 1;
-
-      &__headline {
-        font-size: clamp(30px, 1.5vw, 2.5vw);
-      }
-      &__icon {
-        font-size: clamp(30px, 1.5vw, 2.5vw);
-        color: white;
-      }
+      color: white;
     }
     &__image {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
       object-position: left 75%;
       position: absolute;
-      z-index: 0;
       filter: grayscale(10%);
       opacity: 0.95;
     }
@@ -443,11 +537,10 @@ img {
       position: relative;
       grid-column: 1/-1;
       padding: 4ex;
-      background-size: cover;
       display: grid;
-      grid-template-columns: 4vw 1fr 8vw;
-      grid-auto-flow: row;
-      grid-auto-rows: max-content;
+      grid-template-columns: 2vw 1fr 4vw;
+      // grid-auto-flow: row;
+      // grid-auto-rows: max-content;
       align-content: center;
       row-gap: 4ex;
       & > *:not(img) {
@@ -461,23 +554,19 @@ img {
         inset: 0;
         background-color: rgba(0, 0, 0, 0.32);
       }
-      h6 {
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
+
       h1 {
-        font-size: 4vw;
-        width: 20ch;
-        text-transform: uppercase;
         padding: 0.5ex 0ex 0.5ex 1ex;
         border-left: 4px solid orange;
+        @include screen-lg() {
+          width: 20ch;
+        }
       }
 
       p {
         width: 50ch;
         letter-spacing: 1px;
         line-height: 1.6;
-        font-size: clamp(10px, 1.25vw, 1.25vw);
       }
       img {
         position: absolute;
@@ -489,57 +578,76 @@ img {
       .button-container {
         display: flex;
         gap: 2ex;
-        .button {
-          // padding: 2ex 2.5ex;
-          font-size: clamp(12px, 1.25vw, 1.25vw);
-          padding: clamp(0.75ex, 1ex, 2ex) clamp(0.75ex, 1ex, 2ex);
-          border-radius: 0.75ex;
-          text-transform: uppercase;
-          transition: 250ms ease-in;
-          box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.294);
-
-          &:hover {
-            transform: translateY(-4px);
-          }
-          &__about-food {
-            background-color: orange;
-          }
-          &__view-menu {
-            background-color: rgba(0, 0, 0, 0.468);
-          }
-        }
       }
     }
   }
 }
 
 .limited {
-  max-height: 150vh;
+  max-height: 120vh;
   background-color: rgb(191, 13, 49);
   // background-image: url(../assets/textures/rm432-ca-11.png);
   background-size: cover;
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
-  grid-template-rows:
-    minmax(10px, 50px)
-    min-content
-    minmax(10px, 50px)
-    max-content
-    minmax(10px, 50px)
-    min-content
-    minmax(10px, 50px)
-    min-content
-    minmax(10px, 25px);
-  // display: flex;
-  // flex-direction: column;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 4vw min-content 4vw 4fr 4vw min-content 4vw;
+  grid-template-areas:
+    ". . . . ."
+    ". . a . ."
+    ". . . . ."
+    ". b b b ."
+    ". . . . ."
+    ". . c . ."
+    ". . . . .";
+
   align-items: center;
   justify-items: center;
   position: relative;
   box-shadow: inset 0px 0px 100px 0px rgba(0, 0, 0, 0.728);
   overflow: hidden;
-  & > *:not(.burnt-edge) {
-    z-index: 4;
+  .logo {
+    grid-area: a;
+    color: white;
+  }
+  .embeded {
+    grid-area: b;
+    box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.199);
+    position: relative;
+    // overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+    max-height: 100%;
+    aspect-ratio: 16/9;
+
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 200;
+    }
+  }
+  article.about {
+    grid-area: c;
+    display: flex;
+    flex-direction: column;
+    h2.headline {
+      text-align: center;
+    }
+    h5.body {
+      width: 50ch;
+      align-self: center;
+      text-align: center;
+      color: orange;
+    }
+    a {
+      align-self: center;
+      color: white;
+      letter-spacing: 0px;
+      text-decoration: underline 2px solid;
+      text-underline-position: under;
+    }
   }
   &::before,
   &::after {
@@ -566,84 +674,90 @@ img {
     width: 50%;
     transform: rotate(45deg);
   }
-
-  // gap: 2ex;
-  &__logo {
-    color: white;
-    grid-column: 3/4;
-    grid-row: 2/3;
-    font-size: 3vw;
-  }
-  &__embeded {
-    grid-column: 2/5;
-    grid-row: 4/5;
-    box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.199);
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    aspect-ratio: 16/9;
-
-    iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 200;
-    }
-  }
-  &__caption-headline {
-    align-self: flex-end;
-    grid-column: 3/4;
-    grid-row: 6/7;
-    font-size: 3vw;
-  }
-  &__caption-body {
-    align-self: flex-start;
-    grid-column: 3/4;
-    grid-row: 8/9;
-    text-align: center;
-    color: orange;
-    letter-spacing: 1px;
-    line-height: 1.5;
-    a {
-      color: white;
-      letter-spacing: 0px;
-      text-decoration: underline 2px double;
-      // text-underline-offset: 4px;
-      text-underline-position: under;
-    }
-  }
-  .burnt-edge {
-    position: absolute;
-    bottom: 0;
-
-    width: 100%;
-    height: 10%;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
 }
 .reviews {
-  height: 50vh;
+  // min-height: 40vh;
+  // max-height: 70vh;
   padding: 2ex;
   position: relative;
   background-image: url(../assets/textures/crumpled-paper2.jpg);
   background-size: cover;
-  .button {
-    height: 30%;
+  color: white;
+  &__slider {
+    overflow: hidden;
+    height: 50vh;
+    width: 100%;
+    position: relative;
+
+    article.card {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: var(--transition-main);
+      .control {
+        & > * {
+          color: black;
+        }
+        filter: invert(100%);
+        background-image: url(../assets/textures/crumpled-paper.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: grid;
+        grid-template-rows: 1fr max-content max-content max-content 0.5fr;
+        grid-template-columns: 1fr max-content 0.25fr;
+        grid-template-areas:
+          ". . . "
+          ". b . "
+          ". c . "
+          ". d . "
+          ". . . ";
+
+        // padding: 4ex;
+        span.quotation-mark {
+          grid-area: b;
+          z-index: 2;
+          align-self: center;
+          justify-self: flex-start;
+          img {
+            height: 100%;
+            width: 100%;
+            max-height: 3.6458em;
+            object-fit: contain;
+          }
+        }
+        h2.rating {
+          grid-area: b;
+          align-self: flex-end;
+          justify-self: end;
+          text-align: right;
+        }
+        p.review {
+          grid-area: c;
+          text-align: right;
+          max-width: 50ch;
+        }
+        h5.customer {
+          grid-area: d;
+          align-self: flex-end;
+          justify-self: end;
+        }
+      }
+      @include screen-lg {
+        width: 50%;
+      }
+    }
+  }
+  button.arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 4;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    // color: rgb(255, 255, 255);
-    span {
-      transition: all 250ms ease-in;
-    }
+    z-index: var(--z-index-middle);
+
     &__prev {
       left: 2%;
 
@@ -656,89 +770,6 @@ img {
 
       &:hover span {
         transform: translateX(2px);
-      }
-    }
-  }
-  &__slider {
-    overflow: hidden;
-
-    height: 100%;
-    width: 100%;
-    position: relative;
-
-    &__card {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      // color: white;
-      transition: 250ms ease-in;
-
-      @include screen-lg {
-        width: 50%;
-      }
-      .control {
-        & > * {
-          color: black;
-        }
-        background-image: url(../assets/textures/crumpled-paper.jpg);
-        background-repeat: no-repeat;
-        // background-color: rgb(255, 0, 89);
-
-        background-size: cover;
-        width: 100%;
-        height: 100%;
-        position: relative;
-        display: grid;
-        grid-template-rows: min-content 1fr min-content;
-        grid-template-columns: 1fr auto;
-        row-gap: 2ex;
-        padding: 4ex;
-        // border: 1ex double white;
-        // border-right: 4ex solid transparent;
-        .quotation-mark {
-          position: absolute;
-          height: 20%;
-          aspect-ratio: 1;
-          z-index: 2;
-
-          img {
-            height: 90%;
-            width: 90%;
-            object-fit: contain;
-            // filter: invert(100%);
-          }
-          &__top {
-            top: 20%;
-            left: 5%;
-          }
-          &__bottom {
-            bottom: 20%;
-            right: 5%;
-            img {
-              transform: rotate(180deg);
-            }
-          }
-        }
-        .customer {
-          grid-row: 3;
-          grid-column: 2;
-
-          align-self: flex-end;
-          justify-self: end;
-        }
-        .rating {
-          grid-column: 2;
-          align-self: flex-end;
-          justify-self: end;
-          text-align: right;
-        }
-        .review {
-          grid-column: 2;
-          text-align: right;
-          max-width: 50ch;
-        }
       }
     }
   }
@@ -789,25 +820,16 @@ img {
         margin-bottom: 1ex;
       }
     }
-    &__button {
-      font-size: clamp(16px, 1.5vw, 2.5vw);
-      display: inline-block;
-      padding: 2ex 5ex;
+    .button {
       display: flex;
       align-items: center;
       gap: 1ex;
-      text-transform: uppercase;
       border: none;
-      background-color: orange;
-      color: white;
-      border-radius: 0.5ex;
-      transition: all 250ms ease-in;
 
       span {
-        font-size: clamp(16px, 1.5vw, 2.5vw);
       }
       .icon {
-        transition: all 250ms ease-in;
+        transition: var(--transition-main);
       }
       &:hover {
         background-color: black;
@@ -838,7 +860,7 @@ img {
     grid-template-areas:
       ". . a a . . b b . ."
       ". . a a . . c c . ."
-      ". d d d d d d d d ."
+      ". . d d d d d d . ."
       ". . . e e e e . . .";
     row-gap: 2ex;
     @include screen-lg {
@@ -868,7 +890,6 @@ img {
         li {
           text-transform: uppercase;
           margin-bottom: 1ex;
-          font-size: clamp(10px, 0.9rem, 1rem);
         }
       }
     }
@@ -920,7 +941,6 @@ img {
     background-color: rgba(0, 0, 0, 0.503);
     position: relative;
     .icon {
-      font-size: 6vw;
       position: absolute;
       color: white;
       top: 50%;
