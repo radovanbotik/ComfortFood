@@ -43,7 +43,8 @@ $screen-large: 800px;
   place-items: center;
 }
 .button {
-  padding: 2ex 2.5ex;
+  // padding: 2ex 2.5ex;
+  padding: var(--vspace-3) var(--vspace-2);
   border-radius: 0.5ex;
   text-transform: uppercase;
   transition: var(--transition-main);
@@ -63,13 +64,18 @@ $screen-large: 800px;
   }
 }
 .icon {
+  font-size: inherit;
   background-color: transparent;
   border: none;
+  transition: var(--transition-main);
   cursor: pointer;
   span {
     transition: var(--transition-main);
   }
   color: inherit;
+}
+.toggle-icon {
+  margin: var(--vspace-2) 0 var(--vspace-3) 0;
 }
 .highlight {
   color: orange;
@@ -78,7 +84,7 @@ $screen-large: 800px;
 //GENERAL STYLES
 //
 html {
-  font-size: 10px;
+  font-size: 13px;
   @include screen-lg() {
     font-size: 16px;
   }
@@ -216,9 +222,7 @@ sup {
   font-style: italic;
   font-weight: normal;
 }
-.toggle-icon {
-  margin: var(--vspace-2) 0 var(--vspace-3) 0;
-}
+
 ul {
   list-style: none;
 }
@@ -539,7 +543,7 @@ main {
         }
       }
 
-      &__header {
+      header.header {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -547,13 +551,13 @@ main {
         z-index: 1;
         color: white;
       }
-      &__image {
+      img.image {
         object-position: left 75%;
         position: absolute;
         filter: grayscale(10%);
         opacity: 0.95;
       }
-      &:hover &__image {
+      &:hover img.image {
         filter: grayscale(0%);
         opacity: 1;
         mix-blend-mode: normal;
@@ -831,49 +835,55 @@ main {
   .subscribe-appeal {
     position: relative;
     min-height: 40vh;
-    padding: 12ex 4ex;
+    padding: var(--vspace-0);
     border: 1px solid rgba(0, 0, 0, 0.212);
     border-left: none;
     border-right: none;
     display: grid;
     place-items: center;
-    &__control {
+    .control {
+      flex-grow: 0;
       max-width: 1200px;
       display: flex;
-      gap: 2ex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      @include screen-lg() {
-        flex-direction: row;
-        justify-content: space-evenly;
-        gap: 4ex;
-      }
-      &__headline {
-        width: 40ch;
-        text-align: center;
-        h1 {
-          color: orange;
-          margin-bottom: 1ex;
-        }
-      }
-      .button {
-        display: flex;
-        align-items: center;
-        gap: 1ex;
-        border: none;
+      gap: var(--vspace-3);
+      color: black;
 
-        span {
+      header.headline {
+        text-align: center;
+        flex: 1;
+
+        h4 {
+          color: inherit;
+          width: 41ch;
         }
-        .icon {
-          transition: var(--transition-main);
+      }
+      button.button {
+        flex: 1;
+        width: 100%;
+        h5 {
+          display: flex;
+          align-items: center;
+          margin: 0;
+          .icon {
+            font-size: inherit;
+            transition: var(--transition-main);
+          }
         }
+
         &:hover {
           background-color: black;
         }
         &:hover .icon {
           transform: translateX(0.5ex);
         }
+      }
+      @include screen-lg() {
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 4ex;
       }
     }
 
@@ -889,77 +899,71 @@ main {
 }
 footer .site-footer {
   &__control {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
     padding: 4ex 0ex;
+    color: black;
     display: grid;
-    grid-template-columns: 4vw 4vw 1fr 4vw 0.5fr 4vw 1fr 4vw 4vw;
+    grid-template-columns: 10% auto 4vw 1fr 4vw auto 10%;
     grid-auto-rows: min-content;
     grid-template-areas:
-      ". . a a . . b b . ."
-      ". . a a . . c c . ."
-      ". . d d d d d d . ."
-      ". . . e e e e . . .";
-    row-gap: 2ex;
+      ". a . . . b ."
+      ". a . . . c ."
+      ". d d d d d ."
+      ". e e e e . .";
+    // row-gap: 2ex;
     @include screen-lg {
-      grid-template-columns: 4vw 2fr 4vw 2fr 1vw 1fr 2vw max-content 1vw 4vw;
+      grid-template-columns: 5% 2fr 5% 1fr 5% 1fr 5% 1fr 5%;
       grid-template-rows: min-content min-content;
       grid-template-areas:
-        ". l . a . c . b . ."
-        ". d d d d d . e . .";
-      row-gap: 8ex;
+        ". l . a . c . b ."
+        ". d d d d d . e .";
+      row-gap: 4ex;
     }
     section {
       display: flex;
       flex-direction: column;
-      // gap: 1ex;
-      h4 {
-        color: orange;
-        margin-bottom: 1.5ex;
-      }
+
       ul {
         height: 100%;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        @include screen-lg() {
-          max-height: 200px;
-        }
+
         li {
-          text-transform: uppercase;
           margin-bottom: 1ex;
         }
       }
     }
-    &__logo {
+    section.logo {
       width: 100%;
       height: 100%;
       background-color: black;
       grid-area: l;
     }
-    &__company {
+    section.company {
       grid-area: a;
     }
-    &__jobs {
+    section.jobs {
       grid-area: b;
     }
-    &__socials {
+    section.socials {
       grid-area: c;
       @include screen-lg() {
         border-right: 1px solid orange;
       }
     }
-    &__disclaimer {
+    section.disclaimer {
       grid-area: d;
       h5 {
-        color: black;
         line-height: 1;
+        color: inherit;
       }
     }
-    &__watermark {
+    section.watermark {
       grid-area: e;
       h5 {
-        color: black;
+        color: inherit;
       }
     }
   }

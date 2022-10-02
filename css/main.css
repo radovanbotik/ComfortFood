@@ -35,7 +35,7 @@
 }
 
 .button {
-  padding: 2ex 2.5ex;
+  padding: var(--vspace-3) var(--vspace-2);
   border-radius: 0.5ex;
   text-transform: uppercase;
   transition: var(--transition-main);
@@ -55,8 +55,10 @@
 }
 
 .icon {
+  font-size: inherit;
   background-color: transparent;
   border: none;
+  transition: var(--transition-main);
   cursor: pointer;
   color: inherit;
 }
@@ -64,12 +66,16 @@
   transition: var(--transition-main);
 }
 
+.toggle-icon {
+  margin: var(--vspace-2) 0 var(--vspace-3) 0;
+}
+
 .highlight {
   color: orange;
 }
 
 html {
-  font-size: 10px;
+  font-size: 13px;
 }
 @media (min-width: 800px) {
   html {
@@ -206,10 +212,6 @@ sup {
   text-transform: none;
   font-style: italic;
   font-weight: normal;
-}
-
-.toggle-icon {
-  margin: var(--vspace-2) 0 var(--vspace-3) 0;
 }
 
 ul {
@@ -521,7 +523,7 @@ main .offer__card:not(.hero):hover::after {
     grid-column: span 1;
   }
 }
-main .offer__card__header {
+main .offer__card header.header {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -529,14 +531,14 @@ main .offer__card__header {
   z-index: 1;
   color: white;
 }
-main .offer__card__image {
+main .offer__card img.image {
   -o-object-position: left 75%;
      object-position: left 75%;
   position: absolute;
   filter: grayscale(10%);
   opacity: 0.95;
 }
-main .offer__card:hover main .offer__card__image {
+main .offer__card:hover img.image {
   filter: grayscale(0%);
   opacity: 1;
   mix-blend-mode: normal;
@@ -789,83 +791,84 @@ main .offer.offer-reversed .offer__card.hero {
 main .subscribe-appeal {
   position: relative;
   min-height: 40vh;
-  padding: 12ex 4ex;
+  padding: var(--vspace-0);
   border: 1px solid rgba(0, 0, 0, 0.212);
   border-left: none;
   border-right: none;
   display: grid;
   place-items: center;
 }
-main .subscribe-appeal__control {
+main .subscribe-appeal .control {
+  flex-grow: 0;
   max-width: 1200px;
   display: flex;
-  gap: 2ex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: var(--vspace-3);
+  color: black;
+}
+main .subscribe-appeal .control header.headline {
+  text-align: center;
+  flex: 1;
+}
+main .subscribe-appeal .control header.headline h4 {
+  color: inherit;
+  width: 41ch;
+}
+main .subscribe-appeal .control button.button {
+  flex: 1;
+  width: 100%;
+}
+main .subscribe-appeal .control button.button h5 {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+main .subscribe-appeal .control button.button h5 .icon {
+  font-size: inherit;
+  transition: var(--transition-main);
+}
+main .subscribe-appeal .control button.button:hover {
+  background-color: black;
+}
+main .subscribe-appeal .control button.button:hover .icon {
+  transform: translateX(0.5ex);
 }
 @media (min-width: 800px) {
-  main .subscribe-appeal__control {
+  main .subscribe-appeal .control {
     flex-direction: row;
     justify-content: space-evenly;
     gap: 4ex;
   }
-}
-main .subscribe-appeal__control__headline {
-  width: 40ch;
-  text-align: center;
-}
-main .subscribe-appeal__control__headline h1 {
-  color: orange;
-  margin-bottom: 1ex;
-}
-main .subscribe-appeal__control .button {
-  display: flex;
-  align-items: center;
-  gap: 1ex;
-  border: none;
-}
-main .subscribe-appeal__control .button .icon {
-  transition: var(--transition-main);
-}
-main .subscribe-appeal__control .button:hover {
-  background-color: black;
-}
-main .subscribe-appeal__control .button:hover .icon {
-  transform: translateX(0.5ex);
 }
 main .subscribe-appeal__modal {
   display: none;
 }
 
 footer .site-footer__control {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
   padding: 4ex 0ex;
+  color: black;
   display: grid;
-  grid-template-columns: 4vw 4vw 1fr 4vw 0.5fr 4vw 1fr 4vw 4vw;
+  grid-template-columns: 10% auto 4vw 1fr 4vw auto 10%;
   grid-auto-rows: -webkit-min-content;
   grid-auto-rows: min-content;
-  grid-template-areas: ". . a a . . b b . ." ". . a a . . c c . ." ". . d d d d d d . ." ". . . e e e e . . .";
-  row-gap: 2ex;
+  grid-template-areas: ". a . . . b ." ". a . . . c ." ". d d d d d ." ". e e e e . .";
 }
 @media (min-width: 800px) {
   footer .site-footer__control {
-    grid-template-columns: 4vw 2fr 4vw 2fr 1vw 1fr 2vw -webkit-max-content 1vw 4vw;
-    grid-template-columns: 4vw 2fr 4vw 2fr 1vw 1fr 2vw max-content 1vw 4vw;
+    grid-template-columns: 5% 2fr 5% 1fr 5% 1fr 5% 1fr 5%;
     grid-template-rows: -webkit-min-content -webkit-min-content;
     grid-template-rows: min-content min-content;
-    grid-template-areas: ". l . a . c . b . ." ". d d d d d . e . .";
-    row-gap: 8ex;
+    grid-template-areas: ". l . a . c . b ." ". d d d d d . e .";
+    row-gap: 4ex;
   }
 }
 footer .site-footer__control section {
   display: flex;
   flex-direction: column;
-}
-footer .site-footer__control section h4 {
-  color: orange;
-  margin-bottom: 1.5ex;
 }
 footer .site-footer__control section ul {
   height: 100%;
@@ -873,47 +876,41 @@ footer .site-footer__control section ul {
   flex-direction: column;
   flex-wrap: wrap;
 }
-@media (min-width: 800px) {
-  footer .site-footer__control section ul {
-    max-height: 200px;
-  }
-}
 footer .site-footer__control section ul li {
-  text-transform: uppercase;
   margin-bottom: 1ex;
 }
-footer .site-footer__control__logo {
+footer .site-footer__control section.logo {
   width: 100%;
   height: 100%;
   background-color: black;
   grid-area: l;
 }
-footer .site-footer__control__company {
+footer .site-footer__control section.company {
   grid-area: a;
 }
-footer .site-footer__control__jobs {
+footer .site-footer__control section.jobs {
   grid-area: b;
 }
-footer .site-footer__control__socials {
+footer .site-footer__control section.socials {
   grid-area: c;
 }
 @media (min-width: 800px) {
-  footer .site-footer__control__socials {
+  footer .site-footer__control section.socials {
     border-right: 1px solid orange;
   }
 }
-footer .site-footer__control__disclaimer {
+footer .site-footer__control section.disclaimer {
   grid-area: d;
 }
-footer .site-footer__control__disclaimer h5 {
-  color: black;
+footer .site-footer__control section.disclaimer h5 {
   line-height: 1;
+  color: inherit;
 }
-footer .site-footer__control__watermark {
+footer .site-footer__control section.watermark {
   grid-area: e;
 }
-footer .site-footer__control__watermark h5 {
-  color: black;
+footer .site-footer__control section.watermark h5 {
+  color: inherit;
 }
 
 .fab {
