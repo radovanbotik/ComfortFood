@@ -542,6 +542,16 @@ main .offer article.card:hover img.image {
   opacity: 1;
   mix-blend-mode: normal;
 }
+main .offer article.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  z-index: var(--z-index-one);
+  transition: var(--transition-main);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, rgb(0, 0, 0) 100%);
+}
 main .offer article.card.hero {
   position: relative;
   grid-column: 1/-1;
@@ -586,16 +596,6 @@ main .offer article.card.hero img {
 main .offer article.card.hero .button-container {
   display: flex;
   gap: 2ex;
-}
-main .offer article.card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 1;
-  z-index: var(--z-index-one);
-  transition: var(--transition-main);
-  background: rgb(255, 255, 255);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, rgb(0, 0, 0) 100%);
 }
 main .limited {
   max-height: 120vh;
@@ -773,11 +773,11 @@ main .reviews button.arrow__next:hover span {
 main .offer.offer-reversed {
   grid-template-rows: 2fr 1fr 1fr 1fr;
 }
-main .offer.offer-reversed .offer__card {
+main .offer.offer-reversed article.card {
   grid-row: span 1;
   grid-column: span 1;
 }
-main .offer.offer-reversed .offer__card.hero {
+main .offer.offer-reversed article.card.hero {
   grid-row: 1;
   grid-column: 1/-1;
 }
