@@ -84,7 +84,7 @@ $screen-large: 800px;
 //GENERAL STYLES
 //
 html {
-  font-size: 13px;
+  font-size: 10px;
   @include screen-lg() {
     font-size: 16px;
   }
@@ -509,9 +509,9 @@ main {
       }
     }
   }
-  .offer {
+  section.offer {
     // max-height: 200vh;
-    margin: 2ex;
+    // margin: 2ex;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 2fr;
@@ -525,8 +525,6 @@ main {
     article.card {
       position: relative;
       padding: 4ex;
-      grid-row: span 1;
-      // grid-column: 1/-1;
       min-height: 250px;
       transition: var(--transition-main);
 
@@ -556,6 +554,7 @@ main {
         position: absolute;
         filter: grayscale(10%);
         opacity: 0.95;
+        // display: none;
       }
       &:hover img.image {
         filter: grayscale(0%);
@@ -584,8 +583,6 @@ main {
       padding: 4ex;
       display: grid;
       grid-template-columns: 2vw 1fr 4vw;
-      // grid-auto-flow: row;
-      // grid-auto-rows: max-content;
       align-content: center;
       row-gap: 4ex;
       & > *:not(img) {
@@ -612,7 +609,7 @@ main {
         width: 50ch;
         line-height: 1.6;
       }
-      img {
+      img.image {
         position: absolute;
         width: 100%;
         height: 100%;
