@@ -822,10 +822,10 @@ main {
     article.card {
       grid-row: span 1;
       grid-column: span 1;
-      &.hero {
-        grid-row: 1;
-        grid-column: 1/-1;
-      }
+    }
+    article.card.hero {
+      grid-row: 1;
+      grid-column: 1/-1;
     }
 
     @include screen-lg {
