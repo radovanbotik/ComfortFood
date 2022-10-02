@@ -503,27 +503,26 @@ main .offer {
     gap: 2ex;
   }
 }
-main .offer__card {
+main .offer article.card {
   position: relative;
   padding: 4ex;
   grid-row: span 1;
-  grid-column: 1/-1;
   min-height: 250px;
   transition: var(--transition-main);
 }
-main .offer__card:not(.hero):hover {
+main .offer article.card:not(.hero):hover {
   transform: scale(1.05);
 }
-main .offer__card:not(.hero):hover::after {
+main .offer article.card:not(.hero):hover::after {
   opacity: 0;
 }
 @media (min-width: 800px) {
-  main .offer__card:not(.hero) {
+  main .offer article.card:not(.hero) {
     grid-row: 1;
     grid-column: span 1;
   }
 }
-main .offer__card header.header {
+main .offer article.card header.header {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -531,19 +530,19 @@ main .offer__card header.header {
   z-index: 1;
   color: white;
 }
-main .offer__card img.image {
+main .offer article.card img.image {
   -o-object-position: left 75%;
      object-position: left 75%;
   position: absolute;
   filter: grayscale(10%);
   opacity: 0.95;
 }
-main .offer__card:hover img.image {
+main .offer article.card:hover img.image {
   filter: grayscale(0%);
   opacity: 1;
   mix-blend-mode: normal;
 }
-main .offer__card.hero {
+main .offer article.card.hero {
   position: relative;
   grid-column: 1/-1;
   padding: 4ex;
@@ -552,31 +551,31 @@ main .offer__card.hero {
   align-content: center;
   row-gap: 4ex;
 }
-main .offer__card.hero > *:not(img) {
+main .offer article.card.hero > *:not(img) {
   z-index: 2;
   color: white;
   grid-column: 2/3;
 }
-main .offer__card.hero::after {
+main .offer article.card.hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.32);
 }
-main .offer__card.hero h1 {
+main .offer article.card.hero h1 {
   padding: 0.5ex 0ex 0.5ex 1ex;
   border-left: 4px solid orange;
 }
 @media (min-width: 800px) {
-  main .offer__card.hero h1 {
+  main .offer article.card.hero h1 {
     width: 20ch;
   }
 }
-main .offer__card.hero p {
+main .offer article.card.hero p {
   width: 50ch;
   line-height: 1.6;
 }
-main .offer__card.hero img {
+main .offer article.card.hero img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -584,11 +583,11 @@ main .offer__card.hero img {
      object-fit: cover;
   inset: 0;
 }
-main .offer__card.hero .button-container {
+main .offer article.card.hero .button-container {
   display: flex;
   gap: 2ex;
 }
-main .offer__card::after {
+main .offer article.card::after {
   content: "";
   position: absolute;
   inset: 0;

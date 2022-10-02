@@ -522,11 +522,11 @@ main {
       grid-template-columns: repeat(3, 1fr);
       gap: 2ex;
     }
-    &__card {
+    article.card {
       position: relative;
       padding: 4ex;
       grid-row: span 1;
-      grid-column: 1/-1;
+      // grid-column: 1/-1;
       min-height: 250px;
       transition: var(--transition-main);
 
