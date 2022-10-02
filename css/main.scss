@@ -84,7 +84,7 @@ $screen-large: 800px;
 //GENERAL STYLES
 //
 html {
-  font-size: 13px;
+  font-size: 10px;
   @include screen-lg() {
     font-size: 16px;
   }
