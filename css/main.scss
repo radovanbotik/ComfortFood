@@ -84,7 +84,7 @@ $screen-large: 800px;
 //GENERAL STYLES
 //
 html {
-  font-size: 10px;
+  font-size: 13px;
   @include screen-lg() {
     font-size: 16px;
   }
@@ -338,7 +338,7 @@ header.navigation {
   }
 }
 main {
-  .socials {
+  section.socials {
     list-style: none;
     position: fixed;
     bottom: 40%;
@@ -375,7 +375,7 @@ main {
       }
     }
   }
-  .slider-burgers {
+  section.slider-burgers {
     padding: 2em;
     margin: 0 auto;
     height: 80vh;
@@ -386,7 +386,7 @@ main {
     &::-webkit-scrollbar {
       display: none;
     }
-    &__inner {
+    div.inner {
       position: absolute;
       top: 0;
       left: 0;
@@ -472,7 +472,7 @@ main {
       }
     }
   }
-  .spacer {
+  section.spacer {
     height: 12vh;
     border-top: var(--border-thin);
     border-bottom: var(--border-thin);
@@ -511,11 +511,12 @@ main {
   }
   section.offer {
     // max-height: 200vh;
-    // margin: 2ex;
+    margin: 2ex;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 2fr;
     gap: 2ex;
+    overflow: hidden;
 
     @include screen-lg {
       grid-template-rows: 1fr 2fr;
@@ -584,7 +585,7 @@ main {
       display: grid;
       grid-template-columns: 2vw 1fr 4vw;
       align-content: center;
-      row-gap: 4ex;
+      row-gap: 2ex;
       & > *:not(img) {
         z-index: 2;
         color: white;
@@ -598,7 +599,7 @@ main {
       }
 
       h1 {
-        padding: 0.5ex 0ex 0.5ex 1ex;
+        padding: 0ex 0ex 0ex 1ex;
         border-left: 4px solid orange;
         @include screen-lg() {
           width: 20ch;
@@ -623,7 +624,7 @@ main {
     }
   }
 
-  .limited {
+  section.limited {
     max-height: 120vh;
     background-color: rgb(191, 13, 49);
     // background-image: url(../assets/textures/rm432-ca-11.png);
@@ -714,7 +715,7 @@ main {
       transform: rotate(45deg);
     }
   }
-  .reviews {
+  section.reviews {
     // min-height: 40vh;
     // max-height: 70vh;
     padding: 2ex;
@@ -722,7 +723,7 @@ main {
     background-image: url(../assets/textures/crumpled-paper2.jpg);
     background-size: cover;
     color: white;
-    &__slider {
+    .slider {
       overflow: hidden;
       height: 50vh;
       width: 100%;
@@ -813,7 +814,7 @@ main {
       }
     }
   }
-  .offer.offer-reversed {
+  section.offer.offer-reversed {
     grid-template-rows: 2fr 1fr 1fr 1fr;
 
     article.card {
@@ -830,7 +831,7 @@ main {
       gap: 2ex;
     }
   }
-  .subscribe-appeal {
+  section.subscribe-appeal {
     position: relative;
     min-height: 40vh;
     padding: var(--vspace-0);
@@ -839,7 +840,7 @@ main {
     border-right: none;
     display: grid;
     place-items: center;
-    .control {
+    article.control {
       flex-grow: 0;
       max-width: 1200px;
       display: flex;
@@ -885,7 +886,7 @@ main {
       }
     }
 
-    &__modal {
+    article.modal {
       display: none;
       // position: fixed;
       // inset: 0;

@@ -75,7 +75,7 @@
 }
 
 html {
-  font-size: 10px;
+  font-size: 13px;
 }
 @media (min-width: 800px) {
   html {
@@ -325,7 +325,7 @@ header.navigation.scrolled .navigation-links .link a h4 {
   }
 }
 
-main .socials {
+main section.socials {
   list-style: none;
   position: fixed;
   bottom: 40%;
@@ -336,7 +336,7 @@ main .socials {
   flex-direction: column;
   z-index: 100;
 }
-main .socials a {
+main section.socials a {
   background-color: rgba(0, 0, 0, 0.359);
   display: flex;
   align-items: center;
@@ -346,21 +346,21 @@ main .socials a {
   transition: 150ms ease-in;
   box-shadow: -10px 0px 40px 0px rgba(0, 0, 0, 0.562);
 }
-main .socials a:hover {
+main section.socials a:hover {
   background-color: white;
   transform: translateY(-1px);
   box-shadow: -10px 0px 20px 10px rgba(168, 168, 168, 0.562);
 }
-main .socials a svg {
+main section.socials a svg {
   width: clamp(16px, 1.3vw, 2vw);
   aspect-ratio: 1;
   transition: all 150ms steps(1);
   fill: rgb(255, 255, 255);
 }
-main .socials a:hover svg {
+main section.socials a:hover svg {
   fill: black;
 }
-main .slider-burgers {
+main section.slider-burgers {
   padding: 2em;
   margin: 0 auto;
   height: 80vh;
@@ -370,17 +370,17 @@ main .slider-burgers {
   cursor: -webkit-grab;
   cursor: grab;
 }
-main .slider-burgers::-webkit-scrollbar {
+main section.slider-burgers::-webkit-scrollbar {
   display: none;
 }
-main .slider-burgers__inner {
+main section.slider-burgers div.inner {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   display: flex;
 }
-main .slider-burgers__inner article.slide {
+main section.slider-burgers div.inner article.slide {
   flex-shrink: 0;
   height: 100%;
   width: 100%;
@@ -396,20 +396,20 @@ main .slider-burgers__inner article.slide {
   -webkit-user-select: none;
   -ms-user-select: none;
 }
-main .slider-burgers__inner article.slide h2,
-main .slider-burgers__inner article.slide h3 {
+main section.slider-burgers div.inner article.slide h2,
+main section.slider-burgers div.inner article.slide h3 {
   z-index: var(--z-index-one);
   text-align: center;
 }
-main .slider-burgers__inner article.slide h2 {
+main section.slider-burgers div.inner article.slide h2 {
   grid-area: b;
   align-self: flex-end;
 }
-main .slider-burgers__inner article.slide h3 {
+main section.slider-burgers div.inner article.slide h3 {
   grid-area: a;
   align-self: flex-start;
 }
-main .slider-burgers__inner article.slide img {
+main section.slider-burgers div.inner article.slide img {
   inset: 0;
   width: 100%;
   height: 100%;
@@ -423,18 +423,18 @@ main .slider-burgers__inner article.slide img {
   transform: scale(0.9);
 }
 @media (min-width: 800px) {
-  main .slider-burgers__inner article.slide {
+  main section.slider-burgers div.inner article.slide {
     width: 50%;
   }
 }
-main .slider-burgers__inner article.slide:not(:last-child) {
+main section.slider-burgers div.inner article.slide:not(:last-child) {
   border-right: none;
 }
-main .slider-burgers__inner article.slide.active {
+main section.slider-burgers div.inner article.slide.active {
   background-image: url(../assets/textures/asfalt-dark.png);
   background-color: gold;
 }
-main .slider-burgers__inner article.slide.active::after {
+main section.slider-burgers div.inner article.slide.active::after {
   content: "";
   background-image: url(../assets/textures/stroke3.png);
   background-size: contain;
@@ -448,10 +448,10 @@ main .slider-burgers__inner article.slide.active::after {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-main .slider-burgers__inner article.slide.active img {
+main section.slider-burgers div.inner article.slide.active img {
   transform: scale(1);
 }
-main .spacer {
+main section.spacer {
   height: 12vh;
   border-top: var(--border-thin);
   border-bottom: var(--border-thin);
@@ -459,41 +459,43 @@ main .spacer {
   background-size: cover;
   grid-template-columns: 1fr 1fr;
 }
-main .spacer span {
+main section.spacer span {
   text-transform: uppercase;
   max-width: 30ch;
   white-space: nowrap;
 }
-main .spacer span span.city {
+main section.spacer span span.city {
   margin-left: 0.5ex;
   color: black;
   text-decoration: underline;
 }
-main .spacer span.quote {
+main section.spacer span.quote {
   white-space: normal;
   text-align: center;
 }
-main .spacer span.links {
+main section.spacer span.links {
   cursor: pointer;
   text-decoration: underline;
 }
-main .spacer span:not(.links) {
+main section.spacer span:not(.links) {
   color: rgba(0, 0, 0, 0.472);
   display: none;
 }
 @media (min-width: 800px) {
-  main .spacer {
+  main section.spacer {
     grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
   }
-  main .spacer span:not(.links) {
+  main section.spacer span:not(.links) {
     display: unset;
   }
 }
 main section.offer {
+  margin: 2ex;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 2fr;
   gap: 2ex;
+  overflow: hidden;
 }
 @media (min-width: 800px) {
   main section.offer {
@@ -557,7 +559,7 @@ main section.offer article.card.hero {
   display: grid;
   grid-template-columns: 2vw 1fr 4vw;
   align-content: center;
-  row-gap: 4ex;
+  row-gap: 2ex;
 }
 main section.offer article.card.hero > *:not(img) {
   z-index: 2;
@@ -571,7 +573,7 @@ main section.offer article.card.hero::after {
   background-color: rgba(0, 0, 0, 0.32);
 }
 main section.offer article.card.hero h1 {
-  padding: 0.5ex 0ex 0.5ex 1ex;
+  padding: 0ex 0ex 0ex 1ex;
   border-left: 4px solid orange;
 }
 @media (min-width: 800px) {
@@ -595,7 +597,7 @@ main section.offer article.card.hero .button-container {
   display: flex;
   gap: 2ex;
 }
-main .limited {
+main section.limited {
   max-height: 120vh;
   background-color: rgb(191, 13, 49);
   background-size: cover;
@@ -611,11 +613,11 @@ main .limited {
   box-shadow: inset 0px 0px 100px 0px rgba(0, 0, 0, 0.728);
   overflow: hidden;
 }
-main .limited .logo {
+main section.limited .logo {
   grid-area: a;
   color: white;
 }
-main .limited .embeded {
+main section.limited .embeded {
   grid-area: b;
   box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.199);
   position: relative;
@@ -624,35 +626,35 @@ main .limited .embeded {
   max-height: 100%;
   aspect-ratio: 16/9;
 }
-main .limited .embeded iframe {
+main section.limited .embeded iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   z-index: 200;
 }
-main .limited article.about {
+main section.limited article.about {
   grid-area: c;
   display: flex;
   flex-direction: column;
 }
-main .limited article.about h2.headline {
+main section.limited article.about h2.headline {
   text-align: center;
 }
-main .limited article.about h5.body {
+main section.limited article.about h5.body {
   width: 50ch;
   align-self: center;
   text-align: center;
   color: orange;
 }
-main .limited article.about a {
+main section.limited article.about a {
   align-self: center;
   color: white;
   -webkit-text-decoration: underline 2px solid;
           text-decoration: underline 2px solid;
   text-underline-position: under;
 }
-main .limited::before, main .limited::after {
+main section.limited::before, main section.limited::after {
   content: "";
   position: absolute;
   text-align: center;
@@ -661,7 +663,7 @@ main .limited::before, main .limited::after {
   aspect-ratio: 1;
   font-size: 2.5vw;
 }
-main .limited::before {
+main section.limited::before {
   top: 0%;
   right: 0%;
   width: 20%;
@@ -669,7 +671,7 @@ main .limited::before {
   -webkit-clip-path: polygon(30% 0, 0 0, 100% 100%, 100% 70%);
           clip-path: polygon(30% 0, 0 0, 100% 100%, 100% 70%);
 }
-main .limited::after {
+main section.limited::after {
   content: "LIMITED!";
   color: white;
   top: 0%;
@@ -677,20 +679,20 @@ main .limited::after {
   width: 50%;
   transform: rotate(45deg);
 }
-main .reviews {
+main section.reviews {
   padding: 2ex;
   position: relative;
   background-image: url(../assets/textures/crumpled-paper2.jpg);
   background-size: cover;
   color: white;
 }
-main .reviews__slider {
+main section.reviews .slider {
   overflow: hidden;
   height: 50vh;
   width: 100%;
   position: relative;
 }
-main .reviews__slider article.card {
+main section.reviews .slider article.card {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -698,7 +700,7 @@ main .reviews__slider article.card {
   left: 0;
   transition: var(--transition-main);
 }
-main .reviews__slider article.card .control {
+main section.reviews .slider article.card .control {
   filter: invert(100%);
   background-image: url(../assets/textures/crumpled-paper.jpg);
   background-repeat: no-repeat;
@@ -713,79 +715,79 @@ main .reviews__slider article.card .control {
   grid-template-columns: 1fr max-content 0.25fr;
   grid-template-areas: ". . . " ". b . " ". c . " ". d . " ". . . ";
 }
-main .reviews__slider article.card .control > * {
+main section.reviews .slider article.card .control > * {
   color: black;
 }
-main .reviews__slider article.card .control span.quotation-mark {
+main section.reviews .slider article.card .control span.quotation-mark {
   grid-area: b;
   z-index: 2;
   align-self: center;
   justify-self: flex-start;
 }
-main .reviews__slider article.card .control span.quotation-mark img {
+main section.reviews .slider article.card .control span.quotation-mark img {
   height: 100%;
   width: 100%;
   max-height: 3.6458em;
   -o-object-fit: contain;
      object-fit: contain;
 }
-main .reviews__slider article.card .control h2.rating {
+main section.reviews .slider article.card .control h2.rating {
   grid-area: b;
   align-self: flex-end;
   justify-self: end;
   text-align: right;
 }
-main .reviews__slider article.card .control p.review {
+main section.reviews .slider article.card .control p.review {
   grid-area: c;
   text-align: right;
   max-width: 50ch;
 }
-main .reviews__slider article.card .control h5.customer {
+main section.reviews .slider article.card .control h5.customer {
   grid-area: d;
   align-self: flex-end;
   justify-self: end;
 }
 @media (min-width: 800px) {
-  main .reviews__slider article.card {
+  main section.reviews .slider article.card {
     width: 50%;
   }
 }
-main .reviews button.arrow {
+main section.reviews button.arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: var(--z-index-middle);
 }
-main .reviews button.arrow__prev {
+main section.reviews button.arrow__prev {
   left: 2%;
 }
-main .reviews button.arrow__prev:hover span {
+main section.reviews button.arrow__prev:hover span {
   transform: translateX(-2px);
 }
-main .reviews button.arrow__next {
+main section.reviews button.arrow__next {
   right: 2%;
 }
-main .reviews button.arrow__next:hover span {
+main section.reviews button.arrow__next:hover span {
   transform: translateX(2px);
 }
-main .offer.offer-reversed {
+main section.offer.offer-reversed {
   grid-template-rows: 2fr 1fr 1fr 1fr;
 }
-main .offer.offer-reversed article.card {
+main section.offer.offer-reversed article.card {
   grid-row: span 1;
   grid-column: span 1;
 }
-main .offer.offer-reversed article.card.hero {
+main section.offer.offer-reversed article.card.hero {
   grid-row: 1;
   grid-column: 1/-1;
 }
 @media (min-width: 800px) {
-  main .offer.offer-reversed {
+  main section.offer.offer-reversed {
     grid-template-rows: 2fr 1fr;
     gap: 2ex;
   }
 }
-main .subscribe-appeal {
+main section.subscribe-appeal {
   position: relative;
   min-height: 40vh;
   padding: var(--vspace-0);
@@ -795,7 +797,7 @@ main .subscribe-appeal {
   display: grid;
   place-items: center;
 }
-main .subscribe-appeal .control {
+main section.subscribe-appeal article.control {
   flex-grow: 0;
   max-width: 1200px;
   display: flex;
@@ -805,41 +807,41 @@ main .subscribe-appeal .control {
   gap: var(--vspace-3);
   color: black;
 }
-main .subscribe-appeal .control header.headline {
+main section.subscribe-appeal article.control header.headline {
   text-align: center;
   flex: 1;
 }
-main .subscribe-appeal .control header.headline h4 {
+main section.subscribe-appeal article.control header.headline h4 {
   color: inherit;
   width: 41ch;
 }
-main .subscribe-appeal .control button.button {
+main section.subscribe-appeal article.control button.button {
   flex: 1;
   width: 100%;
 }
-main .subscribe-appeal .control button.button h5 {
+main section.subscribe-appeal article.control button.button h5 {
   display: flex;
   align-items: center;
   margin: 0;
 }
-main .subscribe-appeal .control button.button h5 .icon {
+main section.subscribe-appeal article.control button.button h5 .icon {
   font-size: inherit;
   transition: var(--transition-main);
 }
-main .subscribe-appeal .control button.button:hover {
+main section.subscribe-appeal article.control button.button:hover {
   background-color: black;
 }
-main .subscribe-appeal .control button.button:hover .icon {
+main section.subscribe-appeal article.control button.button:hover .icon {
   transform: translateX(0.5ex);
 }
 @media (min-width: 800px) {
-  main .subscribe-appeal .control {
+  main section.subscribe-appeal article.control {
     flex-direction: row;
     justify-content: space-evenly;
     gap: 4ex;
   }
 }
-main .subscribe-appeal__modal {
+main section.subscribe-appeal article.modal {
   display: none;
 }
 
