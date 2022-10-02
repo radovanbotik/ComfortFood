@@ -42,16 +42,20 @@
   letter-spacing: 1.25;
   box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.294);
   color: white;
-  border: none;
 }
 .button:hover {
   transform: translateY(-0.5ex);
 }
 .button-main {
   background-color: orange;
+  outline: none;
+  border: none;
 }
 .button-secondary {
+  outline: none;
+  border: none;
   background-color: rgba(0, 0, 0, 0.468);
+  background-color: red;
 }
 
 .icon {
@@ -74,6 +78,10 @@
   color: orange;
 }
 
+.de-emphasize {
+  opacity: 0.6;
+}
+
 html {
   font-size: 10px;
 }
@@ -88,6 +96,13 @@ body {
   font-family: "Roboto";
   margin: 0 auto;
   letter-spacing: 0.5;
+}
+body.show-modal {
+  overflow: hidden;
+}
+body.show-modal section.subscribe-appeal article.modal {
+  display: unset;
+  opacity: 1;
 }
 
 a {
@@ -790,15 +805,16 @@ main section.offer.offer-reversed article.card.hero {
 main section.subscribe-appeal {
   position: relative;
   min-height: 40vh;
-  padding: var(--vspace-0);
+  padding: var(--vspace-3);
   border: 1px solid rgba(0, 0, 0, 0.212);
   border-left: none;
   border-right: none;
   display: grid;
   place-items: center;
+  transition: var(--transition-main);
 }
 main section.subscribe-appeal article.control {
-  flex-grow: 0;
+  flex: 1;
   max-width: 1200px;
   display: flex;
   flex-direction: column;
@@ -811,104 +827,167 @@ main section.subscribe-appeal article.control header.headline {
   text-align: center;
   flex: 1;
 }
+main section.subscribe-appeal article.control header.headline h2 {
+  margin: 0;
+}
 main section.subscribe-appeal article.control header.headline h4 {
   color: inherit;
   width: 41ch;
+  margin: 0;
 }
-main section.subscribe-appeal article.control button.button {
+main section.subscribe-appeal article.control button {
   flex: 1;
-  width: 100%;
 }
-main section.subscribe-appeal article.control button.button h5 {
+main section.subscribe-appeal article.control button h5 {
   display: flex;
   align-items: center;
   margin: 0;
 }
-main section.subscribe-appeal article.control button.button h5 .icon {
+main section.subscribe-appeal article.control button h5 .icon {
   font-size: inherit;
   transition: var(--transition-main);
 }
-main section.subscribe-appeal article.control button.button:hover {
+main section.subscribe-appeal article.control button:hover {
   background-color: black;
 }
-main section.subscribe-appeal article.control button.button:hover .icon {
+main section.subscribe-appeal article.control button:hover .icon {
   transform: translateX(0.5ex);
 }
 @media (min-width: 800px) {
   main section.subscribe-appeal article.control {
     flex-direction: row;
-    justify-content: space-evenly;
-    gap: 4ex;
+    gap: var(--vspace-0);
+  }
+  main section.subscribe-appeal article.control header.headline {
+    text-align: left;
   }
 }
 main section.subscribe-appeal article.modal {
   display: none;
+  opacity: 0;
+  position: fixed;
+  inset: 0;
+  background-color: rgb(18, 18, 18);
+  z-index: var(--z-index-top);
+  width: 100%;
+  height: 100vh;
+  padding: var(--vspace-3);
+  color: white;
+}
+main section.subscribe-appeal article.modal div.control {
+  max-width: 800px;
+  height: 100%;
+  margin: auto;
+  background-color: black;
+  display: grid;
+  gap: var(--vspace-2);
+  grid-template-columns: 5% 5% 1fr 5%;
+  grid-template-rows: 1fr -webkit-max-content auto 1fr;
+  grid-template-rows: 1fr max-content auto 1fr;
+  grid-template-areas: ". . . ." ". a a ." ". b b ." ". . . .";
+}
+main section.subscribe-appeal article.modal div.control header.header {
+  grid-area: a;
+}
+main section.subscribe-appeal article.modal div.control header.header h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main section.subscribe-appeal article.modal div.control form.form {
+  max-height: 300px;
+  grid-area: b;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--vspace-2);
+}
+main section.subscribe-appeal article.modal div.control form.form input {
+  min-height: 30px;
+}
+main section.subscribe-appeal article.modal div.control form.form label {
+  align-self: center;
+}
+main section.subscribe-appeal article.modal div.control form.form label h3 {
+  margin: 0;
+}
+main section.subscribe-appeal article.modal div.control form.form button.button-main {
+  grid-column: 2;
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 2px white;
+  transition: var(--transition-main);
+}
+main section.subscribe-appeal article.modal div.control form.form button.button-main:hover {
+  transform: none;
+  box-shadow: 0px 0px 0px 2px orange;
+  background-color: orange;
+}
+main section.subscribe-appeal article.modal div.control form.form button.button-main h3 {
+  margin: 0;
 }
 
-footer .site-footer__control {
+footer.site-footer div.control {
   max-width: 1400px;
   margin: auto;
-  padding: 4ex 0ex;
   color: black;
   display: grid;
-  grid-template-columns: 10% auto 4vw 1fr 4vw auto 10%;
-  grid-auto-rows: -webkit-min-content;
-  grid-auto-rows: min-content;
-  grid-template-areas: ". a . . . b ." ". a . . . c ." ". d d d d d ." ". e e e e . .";
+  grid-template-columns: 0.5fr auto 4vw 1fr 4vw auto 0.5fr;
+  grid-template-rows: 25px -webkit-max-content;
+  grid-template-rows: 25px max-content;
+  grid-template-areas: ". . . . . . ." ". a . . . b ." ". a . . . c ." ". d d d d d ." ". e e e e . .";
 }
 @media (min-width: 800px) {
-  footer .site-footer__control {
+  footer.site-footer div.control {
     grid-template-columns: 5% 2fr 5% 1fr 5% 1fr 5% 1fr 5%;
-    grid-template-rows: -webkit-min-content -webkit-min-content;
-    grid-template-rows: min-content min-content;
-    grid-template-areas: ". l . a . c . b ." ". d d d d d . e .";
-    row-gap: 4ex;
+    grid-template-rows: 50px -webkit-min-content -webkit-min-content 1fr;
+    grid-template-rows: 50px min-content min-content 1fr;
+    grid-template-areas: ". . . . . . . . ." ". l . a . c . b ." ". d d d d d . e ." ". . . . . . . . .";
   }
 }
-footer .site-footer__control section {
+footer.site-footer div.control section {
   display: flex;
   flex-direction: column;
 }
-footer .site-footer__control section ul {
+footer.site-footer div.control section ul {
   height: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
-footer .site-footer__control section ul li {
+footer.site-footer div.control section ul li {
   margin-bottom: 1ex;
 }
-footer .site-footer__control section.logo {
+footer.site-footer div.control section.logo {
   width: 100%;
   height: 100%;
   background-color: black;
   grid-area: l;
 }
-footer .site-footer__control section.company {
+footer.site-footer div.control section.company {
   grid-area: a;
 }
-footer .site-footer__control section.jobs {
+footer.site-footer div.control section.jobs {
   grid-area: b;
 }
-footer .site-footer__control section.socials {
+footer.site-footer div.control section.socials {
   grid-area: c;
+  display: flex;
 }
 @media (min-width: 800px) {
-  footer .site-footer__control section.socials {
+  footer.site-footer div.control section.socials {
     border-right: 1px solid orange;
   }
 }
-footer .site-footer__control section.disclaimer {
+footer.site-footer div.control section.disclaimer {
   grid-area: d;
 }
-footer .site-footer__control section.disclaimer h5 {
+footer.site-footer div.control section.disclaimer h5 {
   line-height: 1;
   color: inherit;
 }
-footer .site-footer__control section.watermark {
+footer.site-footer div.control section.watermark {
   grid-area: e;
 }
-footer .site-footer__control section.watermark h5 {
+footer.site-footer div.control section.watermark h5 {
   color: inherit;
 }
 

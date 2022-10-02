@@ -402,13 +402,13 @@
       <section class="subscribe-appeal">
         <article class="control">
           <header class="headline">
-            <h3 class="highlight">KEEP UP TO DATE WITH US!</h3>
+            <h2 class="highlight">KEEP UP TO DATE WITH US!</h2>
             <h4>
               Do not let the discounts go unnoticed.Let's fork them together!
               Also receive news & fresh offers !
             </h4>
           </header>
-          <button class="button button-main center">
+          <button class="button button-main center" id="open-modal">
             <h5>
               subscribe<span class="material-symbols-outlined icon">
                 arrow_forward_ios
@@ -416,15 +416,40 @@
             </h5>
           </button>
         </article>
-        <article class="modal">
-          <form class="subscribe-appeal__form">
-            <input type="text" placeholder="aaa" />
-          </form>
+        <article class="modal center">
+          <div class="control">
+            <header class="header">
+              <h2 class="highlight">
+                KEEP UP TO DATE WITH US!
+                <span class="material-symbols-outlined icon" id="hide-modal"
+                  >close</span
+                >
+              </h2>
+
+              <h5 class="de-emphasize">
+                SUBSCRIBE TO OUR NEWSLETTER AND SMS NOTIFICATIONS AND RECEIVE
+                REGULAR FRESH DEALS, OFFERS, NEWS & UPDATES
+              </h5>
+            </header>
+            <form class="form">
+              <label for="first-name"><h3>first name</h3></label>
+              <input type="text" id="first-name" />
+              <label for="last-name"><h3>last name</h3> </label>
+              <input type="text" id="last-name" />
+              <label for="user-tel"><h3>telephone</h3> </label>
+              <input type="tel" id="user-tel" />
+              <label for="user-email"><h3>email</h3> </label>
+              <input type="email" id="user-email" />
+              <button type="submit" class="button button-main">
+                <h3>submit</h3>
+              </button>
+            </form>
+          </div>
         </article>
       </section>
     </main>
     <footer class="site-footer">
-      <div class="site-footer__control">
+      <div class="control">
         <section class="logo"></section>
         <section class="company">
           <ul>
@@ -456,8 +481,8 @@
             <li class="subheading3">twit</li>
           </ul>
         </section>
-        <section class="disclaimer footnote_ts">
-          <h5>
+        <section class="disclaimer">
+          <h5 class="footnote_ts">
             COPYRIGHT © <span id="footer-year">2022</span> ALL RIGHTS RESERVED.
             BURGER & FRIES© LTD ALL CONTENT IS THE PROPERTY OF BURGER & FRIES©
             LTD AND ANY USE, DISTRIBUTION OR CHANGE MAY ONLY BE SUBJECT TO
