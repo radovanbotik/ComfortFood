@@ -150,13 +150,8 @@
       <section class="slider-burgers" id="slider-burgers">
         <div class="inner" id="slider-burgers__inner">
           <article class="slide active" data-id="active">
-            <!-- <img src="./assets/burgers/burger1.png" alt="" /> -->
-            <h2>Cheesy goodness!</h2>
             <div class="image-holder">
               <img src="./assets/burgers/burger1.png" alt="" />
-            </div>
-            <div class="label-holder">
-              <img src="./assets/food-labels/My project-1.png" alt="" />
             </div>
           </article>
           <article class="slide" data-id="active">
@@ -444,7 +439,7 @@
                 REGULAR FRESH DEALS, OFFERS, NEWS & UPDATES
               </h5>
             </header>
-            <form class="form">
+            <form class="form" id="subscribe-form">
               <label for="first-name"><h3>first name</h3></label>
               <input type="text" id="first-name" name="first-name" required />
               <label for="last-name"><h3>last name</h3> </label>
@@ -455,13 +450,23 @@
                 type="tel"
                 inputmode="numeric"
                 id="user-tel"
-                pattern="[\d]{7,14}"
+                pattern="[\d]{10}"
                 name="user-tel"
                 required
               />
               <label for="user-email"><h3>email</h3> </label>
               <input type="email" id="user-email" name="user-email" required />
-              <button type="submit" class="button button-main">
+              <label for="lang"><h3>language</h3></label>
+              <!-- <select id="lang">
+                <option value="">choose language</option>
+                <option value="slovak">slovak</option>
+                <option value="english">english</option>
+              </select> -->
+              <button
+                type="submit"
+                class="button button-main"
+                id="submit-subscription"
+              >
                 <h3>submit</h3>
               </button>
             </form>

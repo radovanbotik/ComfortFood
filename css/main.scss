@@ -976,8 +976,19 @@ main {
           display: grid;
           grid-template-columns: auto 1fr;
           gap: var(--vspace-2);
-          input {
+          input,
+          select {
             min-height: 30px;
+            // &:focus {
+            // }
+            // &:required {
+            // }
+            // &:valid {
+            //   border-left: 5px solid green;
+            // }
+            // &:invalid {
+            //   border-left: 5px solid red;
+            // }
           }
 
           label {

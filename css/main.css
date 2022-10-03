@@ -899,7 +899,8 @@ main section.subscribe-appeal article.modal div.control form.form {
   grid-template-columns: auto 1fr;
   gap: var(--vspace-2);
 }
-main section.subscribe-appeal article.modal div.control form.form input {
+main section.subscribe-appeal article.modal div.control form.form input,
+main section.subscribe-appeal article.modal div.control form.form select {
   min-height: 30px;
 }
 main section.subscribe-appeal article.modal div.control form.form label {
